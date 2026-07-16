@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KOLSYSTEM – Inżynieria systemów krytycznych | MATLAB, Simulink, CENELEC</title>
+  <meta name="description" content="KOLSYSTEM Sp. z o.o. – ekspercka firma inżynieryjna z Katowic. Systemy krytyczne, bezpieczeństwo funkcjonalne, Model-Based Design, MATLAB i Simulink, weryfikacja i walidacja zgodnie z normami CENELEC.">
+  <meta name="robots" content="index,follow">
+  <meta name="theme-color" content="#14181d">
+  <link rel="canonical" href="https://kolsystem.pl/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="KOLSYSTEM – Inżynieria systemów krytycznych">
+  <meta property="og:description" content="Bezpieczeństwo funkcjonalne, Model-Based Design, MATLAB i Simulink, normy CENELEC. Ekspercka firma inżynieryjna z Katowic.">
+  <meta property="og:url" content="https://kolsystem.pl/">
+  <meta property="og:locale" content="pl_PL">
+
+  <!-- Fonty -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Titillium+Web:wght@400;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Dane strukturalne dla wyszukiwarek -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "KOLSYSTEM Sp. z o.o.",
+    "url": "https://kolsystem.pl/",
+    "email": "kontakt@kolsystem.pl",
+    "telephone": "+48600580325",
+    "taxID": "9542781688",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "ul. Radockiego 76/8",
+      "postalCode": "40-645",
+      "addressLocality": "Katowice",
+      "addressCountry": "PL"
+    }
+  }
+  </script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Przejdź do treści</a>
+
+<!-- ============================== NAGŁÓWEK ============================== -->
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#top" class="logo" aria-label="KOLSYSTEM – strona główna">
+      <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+        <path class="logo-port" d="M0 11h5M0 21h5M27 16h5"/>
+        <rect x="5" y="5" width="22" height="22" rx="4"/>
+        <path class="logo-signal" d="M10 20l4-8 4 8 4-8"/>
+      </svg>
+      <span class="logo-text">KOL<em>SYSTEM</em></span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-controls="site-nav" aria-expanded="false">
+      <span class="nav-toggle-label">Menu</span>
+      <span class="nav-toggle-bars" aria-hidden="true"><i></i><i></i><i></i></span>
+    </button>
+
+    <nav class="site-nav" id="site-nav" aria-label="Nawigacja główna">
+      <ul>
+        <li><a href="#o-firmie">O firmie</a></li>
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#kolej">Kolej</a></li>
+        <li><a href="#technologie">Technologie</a></li>
+        <li><a href="#standardy">Standardy</a></li>
+        <li><a href="#proces">Proces</a></li>
+        <li><a href="#obszary">Obszary</a></li>
+        <li><a href="#kontakt" class="nav-cta">Kontakt</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ============================== HERO ============================== -->
+  <section class="hero" aria-label="Wprowadzenie">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="container hero-inner">
+
+      <div class="hero-copy">
+        <p class="eyebrow" data-reveal>Systemy krytyczne · Model-Based Design · CENELEC<span class="cursor" aria-hidden="true"></span></p>
+        <h1 data-reveal class="d1">Inżynieria systemów <span class="accent-underline">krytycznych</span></h1>
+        <p class="hero-lead" data-reveal data-delay="2">
+          Wspieramy rozwój systemów, w&nbsp;których bezpieczeństwo, niezawodność i&nbsp;rygor procesu
+          inżynieryjnego mają kluczowe znaczenie. Łączymy doświadczenie z&nbsp;branży kolejowej
+          z&nbsp;podejściem Model-Based Design oraz technologiami MATLAB i&nbsp;Simulink.
+        </p>
+        <div class="hero-actions" data-reveal data-delay="3">
+          <a href="#uslugi" class="btn btn-primary">Poznaj nasze kompetencje</a>
+          <a href="#kontakt" class="btn btn-ghost">Porozmawiaj z ekspertem</a>
+        </div>
+        <ul class="hero-tags" data-reveal data-delay="4" aria-label="Kluczowe obszary">
+          <li>MATLAB / Simulink</li>
+          <li>IEC Certification Kit</li>
+          <li>EN 5012x</li>
+          <li>Weryfikacja i walidacja</li>
+        </ul>
+      </div>
+
+      <!-- Animowany diagram: przepływ MBD + odpowiedź skokowa -->
+      <div class="hero-visual" data-reveal data-delay="3" aria-hidden="true">
+        <svg class="hero-diagram" viewBox="0 0 560 370" focusable="false">
+          <defs>
+            <pattern id="eng-grid" width="28" height="28" patternUnits="userSpaceOnUse">
+              <path d="M28 0H0v28" fill="none" stroke="currentColor" stroke-width="1"/>
+            </pattern>
+          </defs>
+          <rect class="diagram-grid" width="560" height="370" fill="url(#eng-grid)"/>
+
+          <text class="v-title" x="28" y="28">MODEL V · CYKL ŻYCIA SYSTEMU · EN 50129</text>
+
+          <!-- Ścieżka V (pod blokami) + animowany przepływ -->
+          <g class="diagram-links">
+            <path d="M95 70 140 140 185 210 280 310 375 210 420 140 465 70"/>
+          </g>
+          <g class="diagram-flow">
+            <path d="M95 70 140 140 185 210 280 310 375 210 420 140 465 70"/>
+          </g>
+
+          <!-- Powiązania weryfikacyjne między gałęziami -->
+          <g class="v-verif">
+            <path d="M176 70H384"/>
+            <path d="M221 140H339"/>
+            <path d="M266 210h28"/>
+          </g>
+
+          <!-- Fazy cyklu życia -->
+          <g class="diagram-blocks">
+            <rect x="20"  y="52"  width="150" height="36" rx="5"/>
+            <rect x="65"  y="122" width="150" height="36" rx="5"/>
+            <rect x="110" y="192" width="150" height="36" rx="5"/>
+            <rect x="205" y="292" width="150" height="36" rx="5"/>
+            <rect x="300" y="192" width="150" height="36" rx="5"/>
+            <rect x="345" y="122" width="150" height="36" rx="5"/>
+            <rect x="390" y="52"  width="150" height="36" rx="5"/>
+            <text x="95"  y="75">WYMAGANIA</text>
+            <text x="140" y="145">SPECYFIKACJA</text>
+            <text x="185" y="215">PROJEKT MODUŁÓW</text>
+            <text x="280" y="315">IMPLEMENTACJA</text>
+            <text x="375" y="215">TESTY MODUŁÓW</text>
+            <text x="420" y="145">INTEGRACJA I TESTY</text>
+            <text x="465" y="75">WALIDACJA</text>
+          </g>
+        </svg>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============================== O FIRMIE ============================== -->
+  <section class="section section--light" id="o-firmie" aria-labelledby="o-firmie-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">01</span>
+        <h2 id="o-firmie-h">O firmie</h2>
+      </header>
+
+      <div class="about-grid">
+        <div class="about-copy" data-reveal>
+          <p class="section-lead">
+            KOLSYSTEM Sp. z o.o. to niewielka, ekspercka firma inżynieryjna z&nbsp;Katowic.
+            Specjalizujemy się w&nbsp;rozwoju, testowaniu i&nbsp;weryfikacji systemów, w&nbsp;których
+            błąd nie jest opcją.
+          </p>
+          <p>
+            Nasze doświadczenie wywodzi się z&nbsp;branży kolejowej i&nbsp;z&nbsp;pracy zgodnie
+            z&nbsp;wymaganiami norm CENELEC. Na co dzień pracujemy w&nbsp;środowisku MATLAB
+            i&nbsp;Simulink, wykorzystując specjalistyczne toolboxy — w&nbsp;tym IEC Certification Kit —
+            wspierające modelowanie, testowanie, analizę wymagań i&nbsp;proces certyfikacji.
+          </p>
+          <p>
+            Działamy tam, gdzie liczy się rygor procesu: identyfikowalność wymagań, systematyczna
+            weryfikacja i&nbsp;walidacja oraz dokumentacja gotowa na przeglądy i&nbsp;audyty.
+          </p>
+        </div>
+
+        <aside class="spec-card" data-reveal data-delay="2" aria-label="KOLSYSTEM w skrócie">
+          <h3 class="spec-title">W skrócie</h3>
+          <dl class="spec-list">
+            <div><dt>Profil</dt><dd>Inżynieria systemów krytycznych</dd></div>
+            <div><dt>Rodowód</dt><dd>Branża kolejowa · CENELEC</dd></div>
+            <div><dt>Środowisko</dt><dd>MATLAB · Simulink · IEC Certification Kit</dd></div>
+            <div><dt>Model pracy</dt><dd>Projekty · wsparcie zespołów · konsulting</dd></div>
+            <div><dt>Siedziba</dt><dd>Katowice</dd></div>
+          </dl>
+        </aside>
+      </div>
+
+      <ul class="advantages">
+        <li class="advantage" data-reveal>
+          <h3>Doświadczeni specjaliści</h3>
+          <p>Projekty prowadzą inżynierowie z wieloletnią praktyką w systemach safety-critical — od modelu po dokumentację dowodową.</p>
+        </li>
+        <li class="advantage" data-reveal data-delay="2">
+          <h3>Elastyczność działania</h3>
+          <p>Mały zespół to krótkie ścieżki decyzyjne, szybkie rozpoczęcie prac i dopasowanie zakresu do realnych potrzeb projektu.</p>
+        </li>
+        <li class="advantage" data-reveal data-delay="3">
+          <h3>Bezpośredni kontakt</h3>
+          <p>Rozmawiasz wprost z inżynierami, którzy realizują Twój projekt — bez pośredników i warstw handlowych.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== USŁUGI ============================== -->
+  <section class="section section--gray" id="uslugi" aria-labelledby="uslugi-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">02</span>
+        <h2 id="uslugi-h">Usługi</h2>
+        <p class="section-sub">Kompetencje obejmujące pełny cykl życia systemu — od wymagań po dowody zgodności.</p>
+      </header>
+
+      <ul class="cards-grid services-grid">
+        <li class="card" data-reveal>
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="5" r="2.2"/><circle cx="5" cy="19" r="2.2"/><circle cx="12" cy="19" r="2.2"/><circle cx="19" cy="19" r="2.2"/><path d="M12 7.2v9.6M12 11.5 5.6 17M12 11.5l6.4 5.5"/></svg>
+          <h3>Inżynieria systemowa</h3>
+          <p>Definiowanie architektury, dekompozycja funkcji i spójne prowadzenie projektu od koncepcji po integrację.</p>
+        </li>
+        <li class="card" data-reveal data-delay="2">
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3.5h6.5L18 8v12.5H7z"/><path d="M13.5 3.5V8H18"/><path d="m9.8 12.6 1.5 1.5 3-3"/><path d="M9.8 17.3h5"/></svg>
+          <h3>Analiza i zarządzanie wymaganiami</h3>
+          <p>Specyfikacja, strukturyzacja i pełna identyfikowalność wymagań w całym cyklu życia systemu.</p>
+        </li>
+        <li class="card" data-reveal data-delay="3">
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4.5" width="7.5" height="6" rx="1"/><rect x="13.5" y="13.5" width="7.5" height="6" rx="1"/><path d="M10.5 7.5h4.5v6"/><path d="m13 11.5 2 2 2-2"/></svg>
+          <h3>Model-Based Design</h3>
+          <p>Rozwój w oparciu o modele wykonywalne — od koncepcji, przez symulację, po generowanie kodu.</p>
+        </li>
+        <li class="card" data-reveal>
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 13.5H6l2.5-7 4.5 12 2.5-7h6"/></svg>
+          <h3>Modelowanie i symulacja</h3>
+          <p>Modele dynamiki, algorytmów i otoczenia systemu, pozwalające testować zachowanie przed implementacją.</p>
+        </li>
+        <li class="card" data-reveal data-delay="2">
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="7" y="7" width="10" height="10" rx="1.5"/><rect x="10.5" y="10.5" width="3" height="3"/><path d="M9.5 7V4m5 3V4m-5 16v-3m5 3v-3M7 9.5H4m3 5H4m16-5h-3m3 5h-3"/></svg>
+          <h3>Rozwój systemów embedded</h3>
+          <p>Oprogramowanie wbudowane dla platform czasu rzeczywistego, z naciskiem na determinizm i niezawodność.</p>
+        </li>
+        <li class="card" data-reveal data-delay="3">
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m3 13 4 4 7.5-8.5"/><path d="m11.5 13.5 3.5 3.5L21 9.5"/></svg>
+          <h3>Weryfikacja i walidacja</h3>
+          <p>Systematyczne wykazywanie, że system spełnia wymagania — na poziomie modelu, kodu i systemu.</p>
+        </li>
+        <li class="card" data-reveal>
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 3.5V8h-4.5"/><path d="m9 12.5 2 2 4-4"/></svg>
+          <h3>Automatyzacja testów</h3>
+          <p>Środowiska i skrypty testowe, które skracają czas regresji i zapewniają powtarzalność wyników.</p>
+        </li>
+        <li class="card" data-reveal data-delay="2">
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 7 3v6c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg>
+          <h3>Bezpieczeństwo funkcjonalne</h3>
+          <p>Analizy zagrożeń i ryzyka, cele bezpieczeństwa oraz wsparcie procesów prowadzonych zgodnie z SIL.</p>
+        </li>
+        <li class="card" data-reveal data-delay="3">
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="8" y="3" width="10" height="13" rx="1"/><path d="M6 7v14h10"/><path d="M11 7.5h4m-4 3h4"/></svg>
+          <h3>Wsparcie dokumentacji projektowej</h3>
+          <p>Dokumentacja techniczna i procesowa przygotowana pod przeglądy, audyty i dowody zgodności.</p>
+        </li>
+        <li class="card" data-reveal>
+          <svg class="card-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.3 1.5 2.1h4c0-.8.6-1.4 1.5-2.1A6 6 0 0 0 12 3z"/><path d="M9.5 19h5M10.5 21.5h3"/></svg>
+          <h3>Konsulting dla zespołów R&amp;D</h3>
+          <p>Doradztwo, przeglądy procesów i transfer wiedzy dla zespołów rozwijających systemy krytyczne.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== BRANŻA KOLEJOWA ============================== -->
+  <section class="section section--navy" id="kolej" aria-labelledby="kolej-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">03</span>
+        <h2 id="kolej-h">Branża kolejowa</h2>
+      </header>
+
+      <div class="rail-grid">
+        <div class="rail-copy" data-reveal>
+          <p class="section-lead">
+            Nasze kompetencje ukształtował sektor kolejowy — środowisko, w&nbsp;którym każde
+            wymaganie musi być identyfikowalne, a&nbsp;każda decyzja projektowa udokumentowana.
+          </p>
+          <p>
+            To doświadczenie przenosimy na wszystkie realizowane projekty. Kolej wymaga:
+          </p>
+          <ul class="checklist">
+            <li>bezpieczeństwa jako nadrzędnego kryterium projektowego,</li>
+            <li>niezawodności potwierdzonej analizami i testami,</li>
+            <li>identyfikowalności wymagań od specyfikacji po wynik testu,</li>
+            <li>kontrolowanego cyklu życia systemu,</li>
+            <li>kompletnej dokumentacji technicznej,</li>
+            <li>systematycznej weryfikacji i walidacji.</li>
+          </ul>
+        </div>
+
+        <div class="rail-areas" data-reveal data-delay="2">
+          <h3>Możliwe obszary wsparcia</h3>
+          <ul class="tile-list">
+            <li>Systemy sterowania</li>
+            <li>Systemy pokładowe i przytorowe</li>
+            <li>Sygnalizacja kolejowa</li>
+            <li>Oprogramowanie embedded</li>
+            <li>Algorytmy sterujące</li>
+            <li>Testowanie i analiza systemów</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dekoracyjny motyw toru -->
+    <svg class="rail-track" viewBox="0 0 1200 60" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+      <path class="track-rail" d="M0 18h1200M0 42h1200"/>
+      <g class="track-ties">
+        <path d="M30 10v40M110 10v40M190 10v40M270 10v40M350 10v40M430 10v40M510 10v40M590 10v40M670 10v40M750 10v40M830 10v40M910 10v40M990 10v40M1070 10v40M1150 10v40"/>
+      </g>
+      <circle class="track-light" cx="0" cy="30" r="3.5"/>
+    </svg>
+  </section>
+
+  <!-- ============================== TECHNOLOGIE ============================== -->
+  <section class="section section--light" id="technologie" aria-labelledby="technologie-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">04</span>
+        <h2 id="technologie-h">Technologie i narzędzia</h2>
+        <p class="section-sub">Środowisko pracy zbudowane wokół ekosystemu MathWorks i procesów zgodności.</p>
+      </header>
+
+      <ul class="tech-grid">
+        <li class="tech-card" data-reveal>
+          <span class="tech-badge">M</span>
+          <h3>MATLAB</h3>
+          <p>Analizy, algorytmy, przetwarzanie danych i automatyzacja zadań inżynierskich — wspólny język całego procesu.</p>
+        </li>
+        <li class="tech-card" data-reveal data-delay="2">
+          <span class="tech-badge">S</span>
+          <h3>Simulink</h3>
+          <p>Modelowanie i symulacja systemów dynamicznych oraz logiki sterowania — od koncepcji po model gotowy do generacji kodu.</p>
+        </li>
+        <li class="tech-card" data-reveal data-delay="3">
+          <span class="tech-badge">IEC</span>
+          <h3>IEC Certification Kit</h3>
+          <p>Wsparcie procesu certyfikacji oprogramowania — artefakty, kwalifikacja narzędzi i materiały referencyjne pod normy bezpieczeństwa.</p>
+        </li>
+        <li class="tech-card" data-reveal data-delay="4">
+          <span class="tech-badge">+</span>
+          <h3>Specjalistyczne toolboxy</h3>
+          <p>Narzędzia wspierające analizę wymagań, testowanie modeli i kodu, pomiar pokrycia oraz automatyczne raportowanie.</p>
+        </li>
+      </ul>
+
+      <div class="value-block" data-reveal>
+        <h3 class="value-title">Co to daje w projekcie</h3>
+        <ul class="value-grid">
+          <li><strong>Wcześniejsze wykrywanie błędów</strong><span>problemy wychwytywane na poziomie modelu, nie w integracji.</span></li>
+          <li><strong>Symulacja przed implementacją</strong><span>zachowanie systemu sprawdzone zanim powstanie kod.</span></li>
+          <li><strong>Automatyzacja testów</strong><span>szybkie, powtarzalne kampanie testowe i regresja bez pracy ręcznej.</span></li>
+          <li><strong>Powtarzalność analiz</strong><span>te same dane wejściowe zawsze dają ten sam, audytowalny wynik.</span></li>
+          <li><strong>Identyfikowalność</strong><span>ciągłe powiązanie wymagań z modelami, testami i wynikami.</span></li>
+          <li><strong>Wsparcie zgodności</strong><span>dokumentacja i dowody przygotowane pod proces certyfikacji.</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== STANDARDY ============================== -->
+  <section class="section section--dark" id="standardy" aria-labelledby="standardy-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">05</span>
+        <h2 id="standardy-h">Standardy i bezpieczeństwo</h2>
+        <p class="section-sub">Pracujemy w oparciu o wymagania norm bezpieczeństwa funkcjonalnego dla kolei i systemów E/E/PE.</p>
+      </header>
+
+      <ul class="standards-grid">
+        <li class="standard" data-reveal><span class="standard-code">EN 50126</span><p>Proces RAMS — niezawodność, dostępność, podatność utrzymaniowa i bezpieczeństwo w cyklu życia.</p></li>
+        <li class="standard" data-reveal data-delay="2"><span class="standard-code">EN 50128</span><p>Oprogramowanie kolejowych systemów sterowania i zabezpieczenia.</p></li>
+        <li class="standard" data-reveal data-delay="3"><span class="standard-code">EN 50129</span><p>Elektroniczne systemy sygnalizacji związane z bezpieczeństwem.</p></li>
+        <li class="standard" data-reveal><span class="standard-code">EN 50657</span><p>Oprogramowanie pokładowe taboru kolejowego.</p></li>
+        <li class="standard" data-reveal data-delay="2"><span class="standard-code">EN 50716</span><p>Ujednolicone wymagania dla rozwoju oprogramowania kolejowego.</p></li>
+        <li class="standard" data-reveal data-delay="3"><span class="standard-code">IEC 61508</span><p>Bezpieczeństwo funkcjonalne systemów E/E/PE — fundament norm sektorowych.</p></li>
+      </ul>
+
+      <div class="disclaimer" data-reveal role="note">
+        <p>
+          <strong>Jak rozumiemy naszą rolę:</strong> KOLSYSTEM nie jest jednostką certyfikującą.
+          Wspieramy klientów w&nbsp;przygotowaniu procesów, dokumentacji, analiz i&nbsp;dowodów
+          zgodności wymaganych w&nbsp;projektach prowadzonych według powyższych norm — tak, aby
+          zespół był gotowy na przeglądy, asesment i&nbsp;współpracę z&nbsp;jednostkami oceniającymi.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================== PROCES ============================== -->
+  <section class="section section--gray" id="proces" aria-labelledby="proces-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">06</span>
+        <h2 id="proces-h">Proces współpracy</h2>
+      </header>
+
+      <ol class="process">
+        <li class="process-step" data-reveal>
+          <span class="process-num">1</span>
+          <h3>Analiza potrzeb</h3>
+          <p>Poznajemy kontekst projektu, ograniczenia oraz cele — techniczne i procesowe.</p>
+        </li>
+        <li class="process-step" data-reveal data-delay="2">
+          <span class="process-num">2</span>
+          <h3>Definicja zakresu</h3>
+          <p>Ustalamy zakres prac, kryteria odbioru, harmonogram i model współpracy.</p>
+        </li>
+        <li class="process-step" data-reveal data-delay="3">
+          <span class="process-num">3</span>
+          <h3>Realizacja inżynieryjna</h3>
+          <p>Prowadzimy prace zgodnie z ustalonym procesem i regularnie raportujemy postęp.</p>
+        </li>
+        <li class="process-step" data-reveal data-delay="4">
+          <span class="process-num">4</span>
+          <h3>Weryfikacja i testy</h3>
+          <p>Rezultaty podlegają systematycznej weryfikacji względem wymagań i kryteriów jakości.</p>
+        </li>
+        <li class="process-step" data-reveal data-delay="5">
+          <span class="process-num">5</span>
+          <h3>Przekazanie i wsparcie</h3>
+          <p>Przekazujemy rezultaty wraz z dokumentacją i zapewniamy dalsze wsparcie techniczne.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============================== OBSZARY PROJEKTOWE ============================== -->
+  <section class="section section--light" id="obszary" aria-labelledby="obszary-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">07</span>
+        <h2 id="obszary-h">Przykładowe obszary projektowe</h2>
+        <p class="section-sub">Typowe zadania, w których wspieramy zespoły rozwijające systemy krytyczne.</p>
+      </header>
+
+      <ul class="areas-list">
+        <li class="area" data-reveal>
+          <span class="area-index">A1</span>
+          <div><h3>Algorytmy sterowania i logika bezpieczeństwa</h3>
+          <p>Projektowanie i symulacja algorytmów sterujących w Simulinku wraz z analizą przypadków brzegowych.</p></div>
+        </li>
+        <li class="area" data-reveal data-delay="2">
+          <span class="area-index">A2</span>
+          <div><h3>Środowiska testowe MIL / SIL / HIL</h3>
+          <p>Budowa środowisk testowania modelu, kodu i integracji systemu z symulowanym otoczeniem.</p></div>
+        </li>
+        <li class="area" data-reveal data-delay="3">
+          <span class="area-index">A3</span>
+          <div><h3>Generowanie kodu z modeli</h3>
+          <p>Przygotowanie modeli pod automatyczną generację kodu oraz weryfikację równoważności modelu i kodu.</p></div>
+        </li>
+        <li class="area" data-reveal>
+          <span class="area-index">A4</span>
+          <div><h3>Identyfikowalność wymagań</h3>
+          <p>Powiązanie wymagań z modelami, testami i wynikami w spójny, audytowalny łańcuch dowodowy.</p></div>
+        </li>
+        <li class="area" data-reveal data-delay="2">
+          <span class="area-index">A5</span>
+          <div><h3>Analizy na potrzeby dowodów bezpieczeństwa</h3>
+          <p>Wsparcie analiz i argumentacji bezpieczeństwa przygotowywanych w ramach safety case.</p></div>
+        </li>
+        <li class="area" data-reveal data-delay="3">
+          <span class="area-index">A6</span>
+          <div><h3>Wdrożenie podejścia Model-Based Design</h3>
+          <p>Migracja istniejącego procesu R&amp;D do pracy opartej o modele — narzędzia, proces, kompetencje.</p></div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============================== KONTAKT ============================== -->
+  <section class="section section--dark" id="kontakt" aria-labelledby="kontakt-h">
+    <div class="container">
+      <header class="section-head" data-reveal>
+        <span class="section-num">08</span>
+        <h2 id="kontakt-h">Kontakt</h2>
+        <p class="section-sub">Opowiedz nam o swoim projekcie — odpowiadamy inżyniersko i konkretnie.</p>
+      </header>
+
+      <div class="contact-grid">
+        <div class="contact-info" data-reveal>
+          <h3>Dane kontaktowe</h3>
+          <ul class="contact-list">
+            <li>
+              <span class="contact-label">Adres</span>
+              <address>KOLSYSTEM Sp. z o.o.<br>ul. Radockiego 76/8<br>40-645 Katowice</address>
+            </li>
+            <li>
+              <span class="contact-label">E-mail</span>
+              <a href="mailto:kontakt@kolsystem.pl">kontakt@kolsystem.pl</a>
+            </li>
+            <li>
+              <span class="contact-label">Telefon</span>
+              <a href="tel:+48600580325">+48 600 580 325</a>
+            </li>
+          </ul>
+
+          <h3 class="contact-reg-title">Dane rejestrowe</h3>
+          <dl class="reg-list">
+            <div><dt>NIP</dt><dd>954-278-16-88</dd></div>
+            <div><dt>REGON</dt><dd>368149910</dd></div>
+            <div><dt>KRS</dt><dd>0000693250</dd></div>
+          </dl>
+        </div>
+
+        <form class="contact-form" id="contact-form" novalidate data-reveal data-delay="2">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-name">Imię i nazwisko <span class="req" aria-hidden="true">*</span></label>
+              <input type="text" id="f-name" name="name" autocomplete="name" required>
+              <p class="field-error" id="err-name" hidden></p>
+            </div>
+            <div class="form-field">
+              <label for="f-company">Firma</label>
+              <input type="text" id="f-company" name="company" autocomplete="organization">
+              <p class="field-error" id="err-company" hidden></p>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-field">
+              <label for="f-email">Adres e-mail <span class="req" aria-hidden="true">*</span></label>
+              <input type="email" id="f-email" name="email" autocomplete="email" required>
+              <p class="field-error" id="err-email" hidden></p>
+            </div>
+            <div class="form-field">
+              <label for="f-phone">Numer telefonu</label>
+              <input type="tel" id="f-phone" name="phone" autocomplete="tel">
+              <p class="field-error" id="err-phone" hidden></p>
+            </div>
+          </div>
+
+          <div class="form-field">
+            <label for="f-message">Wiadomość <span class="req" aria-hidden="true">*</span></label>
+            <textarea id="f-message" name="message" rows="6" required></textarea>
+            <p class="field-error" id="err-message" hidden></p>
+          </div>
+
+          <div class="form-field form-consent">
+            <label class="consent-label">
+              <input type="checkbox" id="f-consent" name="consent" required>
+              <span>Wyrażam zgodę na przetwarzanie moich danych osobowych przez KOLSYSTEM Sp. z o.o.
+              w celu udzielenia odpowiedzi na przesłane zapytanie. <span class="req" aria-hidden="true">*</span></span>
+            </label>
+            <p class="field-error" id="err-consent" hidden></p>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">Wyślij wiadomość</button>
+
+          <p class="form-success" id="form-success" role="status" hidden>
+            Dziękujemy! Twoja wiadomość została przygotowana — otworzyliśmy Twój program pocztowy
+            z gotową treścią. Jeśli okno się nie pojawiło, napisz bezpośrednio na
+            <a href="mailto:kontakt@kolsystem.pl">kontakt@kolsystem.pl</a>.
+          </p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================== STOPKA ============================== -->
+<footer class="site-footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a href="#top" class="logo" aria-label="KOLSYSTEM – początek strony">
+        <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true" focusable="false">
+          <path class="logo-port" d="M0 11h5M0 21h5M27 16h5"/>
+          <rect x="5" y="5" width="22" height="22" rx="4"/>
+          <path class="logo-signal" d="M10 20l4-8 4 8 4-8"/>
+        </svg>
+        <span class="logo-text">KOL<em>SYSTEM</em></span>
+      </a>
+      <p>Inżynieria systemów krytycznych, bezpieczeństwo funkcjonalne i Model-Based Design.</p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Dane firmy</h3>
+      <p>
+        KOLSYSTEM Sp. z o.o.<br>
+        ul. Radockiego 76/8<br>
+        40-645 Katowice
+      </p>
+      <p>
+        NIP: 954-278-16-88<br>
+        REGON: 368149910<br>
+        KRS: 0000693250
+      </p>
+    </div>
+
+    <div class="footer-col">
+      <h3>Kontakt</h3>
+      <p>
+        <a href="mailto:kontakt@kolsystem.pl">kontakt@kolsystem.pl</a><br>
+        <a href="tel:+48600580325">+48 600 580 325</a>
+      </p>
+      <h3>Na skróty</h3>
+      <ul class="footer-nav">
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#standardy">Standardy</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="container footer-bottom">
+    <p>© <span id="year">2026</span> KOLSYSTEM Sp. z o.o. Wszystkie prawa zastrzeżone.</p>
+  </div>
+</footer>
+
+<button class="to-top" id="to-top" type="button" aria-label="Wróć na górę strony">
+  <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
