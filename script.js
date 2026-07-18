@@ -1,5 +1,5 @@
 /* ==========================================================================
-   KOLSYSTEM Sp. z o.o. — script.js
+   KOLSYSTEM Sp. z o.o. - script.js
    Nawigacja mobilna, scroll spy, animacje pojawiania, przycisk "na górę",
    walidacja formularza kontaktowego.
    ========================================================================== */
@@ -7,7 +7,7 @@
 (function () {
   'use strict';
 
-  /* Klasa .js na <html> — style ukrywające elementy przed animacją
+  /* Klasa .js na <html> - style ukrywające elementy przed animacją
      działają tylko wtedy, gdy JavaScript jest dostępny. */
   document.documentElement.classList.add('js');
 
@@ -136,6 +136,97 @@
   var yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = String(new Date().getFullYear());
 
+  /* ---------- Zgoda na cookies i mapa Google ---------- */
+
+  /* Jedyny własny plik cookie strony: zapamiętuje decyzję użytkownika.
+     'all' = zgoda na treści zewnętrzne (mapa Google), 'necessary' = tylko
+     niezbędne. Mapa ładowana jest wyłącznie po zgodzie (wymóg RODO/ePrivacy). */
+  var CONSENT_COOKIE = 'ks_consent';
+  var CONSENT_MAX_AGE = 60 * 60 * 24 * 180; /* 180 dni */
+
+  var cookieBanner = document.getElementById('cookie-banner');
+  var mapEmbed = document.getElementById('map-embed');
+
+  function getConsent() {
+    var match = document.cookie.match(
+      new RegExp('(?:^|; )' + CONSENT_COOKIE + '=([^;]*)'));
+    return match ? decodeURIComponent(match[1]) : '';
+  }
+
+  function setConsent(value) {
+    document.cookie = CONSENT_COOKIE + '=' + encodeURIComponent(value) +
+      '; max-age=' + CONSENT_MAX_AGE + '; path=/; SameSite=Lax';
+  }
+
+  function loadMap() {
+    if (!mapEmbed || mapEmbed.querySelector('iframe')) return;
+    var iframe = document.createElement('iframe');
+    iframe.src = mapEmbed.getAttribute('data-src');
+    iframe.title = 'Mapa dojazdu - KOLSYSTEM Sp. z o.o., ul. Radockiego 76/8, 40-645 Katowice';
+    iframe.loading = 'lazy';
+    iframe.referrerPolicy = 'no-referrer-when-downgrade';
+    iframe.allowFullscreen = true;
+    mapEmbed.innerHTML = '';
+    mapEmbed.appendChild(iframe);
+  }
+
+  function showBanner() {
+    if (!cookieBanner) return;
+    cookieBanner.hidden = false;
+    requestAnimationFrame(function () {
+      cookieBanner.classList.add('is-visible');
+    });
+  }
+
+  function hideBanner() {
+    if (!cookieBanner) return;
+    cookieBanner.classList.remove('is-visible');
+    cookieBanner.hidden = true;
+  }
+
+  if (cookieBanner) {
+    var acceptBtn = document.getElementById('cookie-accept');
+    var necessaryBtn = document.getElementById('cookie-necessary');
+    var settingsBtn = document.getElementById('cookie-settings');
+    var mapLoadBtn = document.getElementById('map-load-btn');
+
+    if (acceptBtn) {
+      acceptBtn.addEventListener('click', function () {
+        setConsent('all');
+        hideBanner();
+        loadMap();
+      });
+    }
+
+    if (necessaryBtn) {
+      necessaryBtn.addEventListener('click', function () {
+        setConsent('necessary');
+        hideBanner();
+      });
+    }
+
+    /* Zmiana decyzji w dowolnym momencie - link w stopce */
+    if (settingsBtn) {
+      settingsBtn.addEventListener('click', showBanner);
+    }
+
+    /* Wczytanie mapy z placeholdera = zgoda na treści zewnętrzne */
+    if (mapLoadBtn) {
+      mapLoadBtn.addEventListener('click', function () {
+        setConsent('all');
+        hideBanner();
+        loadMap();
+      });
+    }
+
+    var consent = getConsent();
+    if (consent === 'all') {
+      loadMap();
+    } else if (!consent) {
+      showBanner();
+    }
+  }
+
   /* ---------- Formularz kontaktowy ---------- */
 
   var form = document.getElementById('contact-form');
@@ -256,7 +347,7 @@
       var phone = fields.phone.input.value.trim();
       var message = fields.message.input.value.trim();
 
-      var subject = 'Zapytanie ze strony kolsystem.pl — ' +
+      var subject = 'Zapytanie ze strony kolsystem.pl - ' +
         (company ? name + ' (' + company + ')' : name);
 
       var body =
