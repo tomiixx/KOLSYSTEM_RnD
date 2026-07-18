@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="KOLSYSTEM">
+  <title>KOLSYSTEM - sygnet 2oo3 na żółtym rewersie (grafit)</title>
+  <rect width="512" height="512" rx="116" fill="#FFD200"/>
+  <g stroke="#14181d" stroke-width="24" stroke-linecap="round">
+    <line x1="146" y1="150" x2="352" y2="256"/>
+    <line x1="146" y1="256" x2="352" y2="256"/>
+    <line x1="146" y1="362" x2="352" y2="256"/>
+  </g>
+  <g fill="#14181d">
+    <circle cx="146" cy="150" r="34"/>
+    <circle cx="146" cy="256" r="34"/>
+    <circle cx="146" cy="362" r="34"/>
+  </g>
+  <circle cx="352" cy="256" r="66" fill="#14181d"/>
+  <path d="M322 260 L345 284 L388 230" fill="none" stroke="#FFD200" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

@@ -460,28 +460,44 @@ p { max-width: 65ch; }
   text-decoration: none;
 }
 
-.logo-mark {
-  width: 2rem;
-  height: 2rem;
-  fill: none;
-  stroke: var(--yellow);
-  stroke-width: 2;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  flex-shrink: 0;
-}
-.logo-mark rect { stroke: var(--white); }
-.logo-mark .logo-signal { stroke: var(--yellow); }
-.logo-mark .logo-port { stroke: var(--muted-d); }
-
 .logo-text {
+  display: inline-flex;
+  align-items: center;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: 1.15rem;
-  letter-spacing: 0.07em;
+  font-size: 1.2rem;
+  letter-spacing: 0.06em;
   color: var(--white);
+  white-space: nowrap;
 }
-.logo-text em { font-style: normal; color: var(--yellow); }
+
+/* Znak słowny: KOL (biel) + SYSTEM (żółć safety) — złożenie KOLej + SYSTEM
+   wyrażone kolorem, bez separatora. */
+.logo-sys {
+  color: var(--yellow);
+}
+
+/* Sygnet 2oo3 obok napisu (lockup) */
+.logo-mark {
+  height: 1.7rem;
+  width: auto;
+  flex: 0 0 auto;
+  color: var(--white);      /* węzły i linie = currentColor */
+  /* korekta optyczna: wersaliki Chakra Petch siedzą wyżej w em-boxie,
+     więc znak podnosimy o ~4% jego wysokości, by środek trafił w środek liter */
+  transform: translateY(-4%);
+}
+.logo-mark .lm-voter {
+  fill: var(--yellow);      /* węzeł-majoryzator */
+}
+.logo-mark .lm-check {
+  stroke: var(--graphite);  /* fiszka √ na żółtym węźle */
+}
+
+/* W nagłówku logotyp większy niż w stopce */
+.site-header .logo { gap: 0.7rem; }
+.site-header .logo-text { font-size: 1.55rem; }
+.site-header .logo-mark { height: 2.25rem; }
 
 /* Nawigacja desktop */
 .site-nav ul {

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="KOLSYSTEM">
+  <title>KOLSYSTEM - favicon</title>
+  <rect width="512" height="512" rx="96" fill="#14181d"/>
+  <g transform="translate(43.52 167.25) scale(0.25)">
+    <path fill="#f5f7fa" d="M65 0H201V293H307L476 0H629L424 349L646 700H490L306 409H201V700H65Z M1069.0 592V492H1203.0V551L1236.0 584H1443.0L1477.0 550V434L1444.0 401H1179.0L1071.0 293V108L1179.0 0H1495.0L1603.0 108V209H1469.0V149L1436.0 116H1238.0L1205.0 149V252L1238.0 285H1503.0L1611.0 393V590L1501.0 700H1177.0Z"/>
+    <g fill="#FFD200"><rect x="769" y="164" width="132" height="132" rx="38"/><rect x="769" y="404" width="132" height="132" rx="38"/></g>
+  </g>
+</svg>
