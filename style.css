@@ -274,6 +274,15 @@ h2 {
 
 h3 { font-size: 1.05rem; font-weight: 600; }
 
+/* Nagłówki kart treściowych - mocniejszy akcent dla skanowalności */
+.card h3,
+.advantage h3,
+.tech-card h3,
+.area h3 {
+  font-size: 1.18rem;
+  font-weight: 700;
+}
+
 p { max-width: 65ch; }
 
 /* ---------- 3. Układ i elementy wspólne ---------- */
@@ -283,7 +292,7 @@ p { max-width: 65ch; }
   margin-inline: auto;
 }
 
-.section { padding: clamp(4rem, 8vw, 6.5rem) 0; }
+.section { padding: clamp(3.75rem, 7vw, 5.75rem) 0; }
 
 /* Warianty tła sekcji */
 .section--light { background: #ffffff; color: var(--text-dark); }
@@ -313,7 +322,7 @@ p { max-width: 65ch; }
 .section--light p, .section--gray p { color: var(--muted-l); }
 
 /* Nagłówek sekcji: tytuł + żółta linia */
-.section-head { margin-bottom: clamp(2.2rem, 5vw, 3.5rem); }
+.section-head { margin-bottom: clamp(2rem, 4.5vw, 3rem); }
 
 .section-head h2 { position: relative; padding-bottom: 0.85rem; }
 
@@ -771,12 +780,17 @@ p { max-width: 65ch; }
 .advantage {
   background: var(--gray-100);
   border: 1px solid var(--border-l);
+  border-top: 3px solid var(--border-l);
   border-radius: var(--radius);
   padding: 1.5rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.advantage:hover { border-color: var(--yellow); transform: translateY(-3px); }
+.advantage:hover {
+  border-top-color: var(--yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(20, 24, 29, 0.08);
+}
 
 .advantage h3 { margin-bottom: 0.5rem; }
 .advantage p { font-size: 0.94rem; }
@@ -971,12 +985,17 @@ p { max-width: 65ch; }
 .tech-card {
   background: var(--gray-100);
   border: 1px solid var(--border-l);
+  border-top: 3px solid var(--border-l);
   border-radius: var(--radius);
   padding: 1.6rem 1.5rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.tech-card:hover { border-color: var(--yellow); transform: translateY(-4px); }
+.tech-card:hover {
+  border-top-color: var(--yellow);
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(20, 24, 29, 0.08);
+}
 
 .tech-badge {
   display: inline-flex;
@@ -1054,13 +1073,14 @@ p { max-width: 65ch; }
   gap: 0.7rem;
   background: var(--anthracite);
   border: 1px solid var(--border-d);
+  border-top: 3px solid var(--border-d);
   border-radius: var(--radius);
   padding: 1.65rem 1.6rem;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .standard:hover {
-  border-color: var(--yellow);
+  border-top-color: var(--yellow);
   transform: translateY(-3px);
   box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
 }
@@ -1080,7 +1100,7 @@ p { max-width: 65ch; }
 
 .standard h3 {
   margin: 0.15rem 0 0;
-  font-size: 1.12rem;
+  font-size: 1.18rem;
   color: var(--white);
 }
 
@@ -1151,19 +1171,118 @@ p { max-width: 65ch; }
 
 .area {
   display: flex;
-  gap: 1.2rem;
+  gap: 1.1rem;
   align-items: flex-start;
   background: var(--gray-100);
   border: 1px solid var(--border-l);
+  border-top: 3px solid var(--border-l);
   border-radius: var(--radius);
   padding: 1.5rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.area:hover { border-color: var(--yellow); transform: translateY(-3px); }
+.area:hover {
+  border-top-color: var(--yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px rgba(20, 24, 29, 0.08);
+}
+
+/* Numer porządkowy - echo numeracji z sekcji Kolej i Proces */
+.area-num {
+  flex-shrink: 0;
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--yellow);
+  padding-top: 0.12rem;
+}
 
 .area h3 { margin-bottom: 0.45rem; }
 .area p { font-size: 0.93rem; }
+
+/* ---------- 12a. Pasek-manifest (statement) ---------- */
+
+.statement {
+  /* ciemny pas z siatką inżynierską - łamie rytm jasnych sekcji z kartami */
+  background:
+    radial-gradient(50rem 24rem at 82% -30%, rgba(255, 210, 0, 0.06), transparent 60%),
+    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    var(--graphite);
+  background-size: auto, 44px 44px, 44px 44px, auto;
+  color: var(--white);
+  padding: clamp(3rem, 6vw, 4.5rem) 0;
+  border-top: 1px solid var(--border-d);
+  border-bottom: 1px solid var(--border-d);
+}
+
+.statement-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--yellow);
+  margin-bottom: 1rem;
+}
+
+.statement-text {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(1.5rem, 3.4vw, 2.4rem);
+  line-height: 1.25;
+  letter-spacing: 0.005em;
+  color: var(--white);
+  max-width: 52rem;
+  text-wrap: balance;
+}
+
+.statement-text span { color: var(--yellow); }
+
+/* ---------- 12b. Pasek CTA przed kontaktem ---------- */
+
+.cta-band {
+  background: var(--yellow);
+  color: var(--on-yellow);
+  padding: clamp(2.75rem, 5vw, 4rem) 0;
+}
+
+.cta-band-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  flex-wrap: wrap;
+}
+
+.cta-band-title {
+  color: var(--graphite);
+  font-size: clamp(1.5rem, 3vw, 2.1rem);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  max-width: 22ch;
+}
+
+.cta-band-text {
+  margin-top: 0.6rem;
+  color: rgba(20, 24, 29, 0.78);
+  font-size: 1.05rem;
+  max-width: 42ch;
+}
+
+.cta-band-btn {
+  flex-shrink: 0;
+  background: var(--graphite);
+  color: var(--white);
+  /* ścięty narożnik - spójnie z btn-primary */
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 12px), calc(100% - 12px) 100%, 0 100%);
+}
+
+.cta-band-btn:hover { background: #20262e; transform: translateY(-2px); }
+.cta-band-btn:focus-visible {
+  outline: 2px solid var(--graphite);
+  outline-offset: 3px;
+}
 
 /* ---------- 13. Kontakt ---------- */
 
@@ -1522,7 +1641,7 @@ p { max-width: 65ch; }
   border: 1px solid var(--border-d);
   border-left: 4px solid var(--yellow);
   border-radius: 8px;
-  padding: 1.1rem 1.4rem;
+  padding: 0.95rem 1.25rem;
   box-shadow: 0 18px 46px rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease, transform 0.3s ease;
@@ -1542,10 +1661,10 @@ p { max-width: 65ch; }
 }
 
 .cookie-text {
-  font-size: 0.86rem;
-  line-height: 1.55;
+  font-size: 0.82rem;
+  line-height: 1.5;
   color: var(--muted-d);
-  max-width: 44rem;
+  max-width: 42rem;
 }
 
 .cookie-text strong { color: var(--white); }
@@ -1710,6 +1829,7 @@ p { max-width: 65ch; }
   .site-header .logo-mark { height: 1.95rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-actions .btn { width: 100%; text-align: center; }
+  .cta-band-btn { width: 100%; text-align: center; }
   .to-top { right: 1rem; bottom: 1rem; }
 }
 
