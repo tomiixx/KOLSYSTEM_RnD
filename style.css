@@ -644,10 +644,7 @@ p { max-width: 65ch; }
 .hero-diagram {
   width: 100%;
   height: auto;
-  color: var(--border-d); /* kolor siatki (pattern korzysta z currentColor) */
 }
-
-.diagram-grid { opacity: 0.5; }
 
 .diagram-blocks rect {
   fill: var(--anthracite);
