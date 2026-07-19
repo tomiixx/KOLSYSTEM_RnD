@@ -472,7 +472,9 @@ p { max-width: 65ch; }
 /* W nagłówku logotyp większy niż w stopce */
 .site-header .logo { gap: 0.7rem; }
 .site-header .logo-text { font-size: 1.55rem; }
-.site-header .logo-mark { height: 2.25rem; }
+/* Sygnet w nagłówku to pełny badge na żółtym rewersie - bez korekty optycznej
+   stosowanej dla znaku bez tła (patrz .logo-mark) */
+.site-header .logo-mark { height: 2.25rem; transform: none; }
 
 /* Nawigacja desktop */
 .site-nav ul {
