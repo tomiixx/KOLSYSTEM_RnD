@@ -580,7 +580,7 @@ p { max-width: 65ch; }
 .hero-inner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+  grid-template-columns: minmax(0, 0.76fr) minmax(0, 1.24fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
   padding: clamp(3rem, 6vw, 5rem) 0;
@@ -644,8 +644,8 @@ p { max-width: 65ch; }
   min-width: 0;
   position: relative;
   padding: 0.6rem;
-  align-self: start;
-  margin-top: 5rem;
+  align-self: center;
+  margin-top: 2rem;
 }
 
 /* Narożniki "blueprint" wokół diagramu */
@@ -851,93 +851,132 @@ p { max-width: 65ch; }
 
 /* ---------- 8. Branża kolejowa ---------- */
 
-.rail-grid {
+.rail-lead {
+  font-size: 1.18rem;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--white);
+  max-width: 46rem;
+  margin-bottom: clamp(2.2rem, 4vw, 3rem);
+}
+
+.rail-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+  gap: clamp(2rem, 5vw, 3.5rem);
   align-items: start;
 }
 
-.rail-copy > p { margin-bottom: 1rem; }
-
-.checklist { margin-top: 0.5rem; }
-
-.checklist li {
-  position: relative;
-  padding: 0.45rem 0 0.45rem 2rem;
-  color: var(--muted-d);
-}
-
-.checklist li::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 0.78em;
-  width: 0.9rem;
-  height: 0.5rem;
-  border-left: 2px solid var(--yellow);
-  border-bottom: 2px solid var(--yellow);
-  transform: rotate(-45deg);
-}
-
-.rail-areas {
-  background: var(--navy-panel);
-  border: 1px solid #24344f;
-  border-radius: var(--radius);
-  padding: 1.8rem;
-}
-
-.rail-areas h3 {
+/* Wspólny mono-nagłówek podsekcji */
+.rail-eyebrow {
+  display: block;
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   font-weight: 500;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--yellow);
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.3rem;
 }
 
-.tile-list {
+/* Wymagania kolei - numerowana specyfikacja z liniami podziału */
+.rail-reqs { border-top: 1px solid var(--border-d); }
+
+.rail-reqs li {
   display: grid;
-  gap: 0.6rem;
+  grid-template-columns: 2.6rem 1fr;
+  align-items: baseline;
+  gap: 0.8rem;
+  padding: 1rem 0.35rem;
+  border-bottom: 1px solid var(--border-d);
+  transition: border-color 0.2s ease, background 0.2s ease;
 }
 
-.tile-list li {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid #24344f;
-  border-left: 3px solid var(--yellow);
-  border-radius: 5px;
-  padding: 0.7rem 1rem;
+.rail-reqs li:hover {
+  border-color: rgba(255, 210, 0, 0.45);
+  background: rgba(255, 210, 0, 0.03);
+}
+
+.rail-reqs-num {
+  font-family: var(--font-mono);
   font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--yellow);
+}
+
+.rail-reqs-text {
+  font-size: 1rem;
+  line-height: 1.45;
   color: var(--white);
-  transition: background 0.2s ease, transform 0.2s ease;
 }
 
-.tile-list li:hover {
-  background: rgba(255, 210, 0, 0.08);
-  transform: translateX(4px);
+/* Panel "blueprint" z obszarami wsparcia (echo diagramu w hero) */
+.rail-panel {
+  position: relative;
+  background:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    var(--navy-panel);
+  background-size: 26px 26px, 26px 26px, auto;
+  border: 1px solid #24344f;
+  border-radius: var(--radius);
+  padding: 1.9rem;
 }
 
-/* Dekoracja: tor kolejowy na dole sekcji */
-.rail-track {
-  width: 100%;
-  height: 44px;
-  margin-top: clamp(3rem, 6vw, 5rem);
-  opacity: 0.35;
+/* Narożniki kreślarskie */
+.rail-panel::before,
+.rail-panel::after {
+  content: "";
+  position: absolute;
+  width: 1.4rem;
+  height: 1.4rem;
+  border: 2px solid var(--yellow);
+  opacity: 0.9;
+}
+.rail-panel::before { top: -1px; left: -1px; border-right: 0; border-bottom: 0; }
+.rail-panel::after  { bottom: -1px; right: -1px; border-left: 0; border-top: 0; }
+
+/* Łańcuch węzłów - nawiązanie do sygnetu 2oo3 i połączeń w diagramie */
+.rail-chain { position: relative; }
+
+.rail-chain::before {
+  content: "";
+  position: absolute;
+  left: calc(0.55rem - 1px);
+  top: 1.2rem;
+  bottom: 1.2rem;
+  width: 2px;
+  background: linear-gradient(var(--yellow), rgba(255, 210, 0, 0.1));
+  opacity: 0.55;
 }
 
-.track-rail { stroke: var(--muted-d); stroke-width: 2; fill: none; }
-.track-ties path { stroke: #24344f; stroke-width: 6; }
-
-/* Światło sygnałowe przesuwające się wzdłuż toru */
-.track-light {
-  fill: var(--yellow);
-  animation: train 11s linear infinite;
+.rail-chain li {
+  position: relative;
+  padding: 0.72rem 0 0.72rem 2rem;
+  font-size: 1rem;
+  color: var(--white);
+  transition: transform 0.2s ease;
 }
 
-@keyframes train {
-  from { transform: translateX(-20px); }
-  to   { transform: translateX(1220px); }
+.rail-chain li::before {
+  content: "";
+  position: absolute;
+  left: 0.2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 0.7rem;
+  height: 0.7rem;
+  border-radius: 50%;
+  background: var(--navy-panel);
+  border: 2px solid var(--yellow);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.rail-chain li:hover { transform: translateX(3px); }
+
+.rail-chain li:hover::before {
+  background: var(--yellow);
+  box-shadow: 0 0 0 4px rgba(255, 210, 0, 0.16);
 }
 
 /* ---------- 9. Technologie ---------- */
@@ -1580,14 +1619,28 @@ p { max-width: 65ch; }
 
 /* ---------- 17. Responsywność ---------- */
 
+/* Większa skala typografii na mniejszych ekranach - poprawa czytelności.
+   Skalujemy bazowy rem, więc proporcjonalnie rosną też teksty i odstępy.
+   (rem w regułach media query pozostaje względem domyślnych 16px, więc
+   progi nie tworzą pętli sprzężenia). */
+@media (max-width: 56rem) {
+  html { font-size: 106.25%; } /* ~17px */
+}
+@media (max-width: 40rem) {
+  html { font-size: 112.5%; }  /* ~18px */
+}
+
 @media (max-width: 62rem) {
   /* Hero: diagram pod tekstem */
   .hero-inner { grid-template-columns: 1fr; }
   .hero-visual { max-width: 34rem; margin-top: 0; align-self: auto; }
 
   .about-grid,
-  .rail-grid,
+  .rail-layout,
   .contact-grid { grid-template-columns: 1fr; }
+
+  /* Kolej: panel obszarów nie rozciąga się na całą szerokość po zwinięciu */
+  .rail-panel { max-width: 34rem; }
 
   .advantages { grid-template-columns: 1fr 1fr; }
   .advantages li:last-child { grid-column: 1 / -1; }
@@ -1665,6 +1718,15 @@ p { max-width: 65ch; }
   .form-row { grid-template-columns: 1fr; }
   .advantages { grid-template-columns: 1fr; }
   .standards-grid { grid-template-columns: 1fr; }
+  /* Karty w jednej kolumnie - unika sztywnych minimów minmax() na wąskich
+     ekranach (po powiększeniu bazowego rem 17rem/15rem bywa szersze niż widok) */
+  .cards-grid,
+  .tech-grid,
+  .value-grid { grid-template-columns: 1fr; }
+  /* Na bardzo wąskich ekranach zmniejszamy logo w nagłówku, by zmieściło się
+     obok przycisku menu przy powiększonej typografii */
+  .site-header .logo-text { font-size: 1.3rem; }
+  .site-header .logo-mark { height: 1.95rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-actions .btn { width: 100%; text-align: center; }
   .to-top { right: 1rem; bottom: 1rem; }
