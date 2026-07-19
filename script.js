@@ -14,6 +14,27 @@
   var prefersReducedMotion =
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Bezpiecznik: treść nigdy nie zostaje ukryta ---------- */
+  /* Elementy [data-reveal] ukrywa CSS wyłącznie przy obecnej klasie .js.
+     Gdyby inicjalizacja przerwała się wyjątkiem, poniższe zabezpieczenia
+     gwarantują, że cała treść i tak zostanie pokazana (brak "pustej strony"). */
+  var revealReady = false;
+
+  function revealAll() {
+    var els = document.querySelectorAll('[data-reveal]');
+    for (var i = 0; i < els.length; i++) {
+      els[i].classList.add('is-visible');
+    }
+  }
+
+  window.addEventListener('error', revealAll);
+  /* Ostateczny bezpiecznik czasowy, gdyby observer nigdy nie wystartował. */
+  window.setTimeout(function () {
+    if (!revealReady) revealAll();
+  }, 5000);
+
+  try {
+
   /* ---------- Nawigacja mobilna ---------- */
 
   var header = document.querySelector('.site-header');
@@ -29,6 +50,10 @@
   function openNav() {
     siteNav.classList.add('is-open');
     navToggle.setAttribute('aria-expanded', 'true');
+    /* Przenieś fokus do pierwszej pozycji otwartego menu (tylko mobile - na
+       desktopie przycisk jest ukryty, więc openNav nie jest wywoływane). */
+    var firstLink = siteNav.querySelector('a');
+    if (firstLink) firstLink.focus();
   }
 
   if (navToggle && siteNav) {
@@ -49,6 +74,22 @@
     document.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') {
         closeNav();
+        navToggle.focus();
+      }
+    });
+
+    /* Uwięzienie fokusu w otwartym menu mobilnym (Tab / Shift+Tab) */
+    siteNav.addEventListener('keydown', function (e) {
+      if (e.key !== 'Tab' || !siteNav.classList.contains('is-open')) return;
+      var links = siteNav.querySelectorAll('a');
+      if (!links.length) return;
+      var firstLink = links[0];
+      var lastLink = links[links.length - 1];
+      if (e.shiftKey && document.activeElement === firstLink) {
+        e.preventDefault();
+        navToggle.focus();
+      } else if (!e.shiftKey && document.activeElement === lastLink) {
+        e.preventDefault();
         navToggle.focus();
       }
     });
@@ -94,7 +135,13 @@
 
   function setActiveLink(id) {
     navLinks.forEach(function (link) {
-      link.classList.toggle('is-active', link.getAttribute('href') === '#' + id);
+      var active = link.getAttribute('href') === '#' + id;
+      link.classList.toggle('is-active', active);
+      if (active) {
+        link.setAttribute('aria-current', 'true');
+      } else {
+        link.removeAttribute('aria-current');
+      }
     });
   }
 
@@ -129,6 +176,25 @@
       { threshold: 0.15, rootMargin: '0px 0px -8% 0px' }
     );
     revealEls.forEach(function (el) { revealObserver.observe(el); });
+  }
+
+  /* Mechanizm odsłaniania działa - bezpiecznik czasowy nie jest już potrzebny. */
+  revealReady = true;
+
+  /* ---------- Wydajność: wstrzymanie ciągłych animacji hero poza ekranem ---------- */
+  /* Przepływ w diagramie i mrugający kursor to animacje w pętli. Gdy hero
+     opuści widok, wstrzymujemy je (klasa .is-offscreen), oszczędzając CPU/baterię. */
+  var hero = document.querySelector('.hero');
+  if (hero && !prefersReducedMotion && 'IntersectionObserver' in window) {
+    var heroObserver = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          hero.classList.toggle('is-offscreen', !entry.isIntersecting);
+        });
+      },
+      { threshold: 0 }
+    );
+    heroObserver.observe(hero);
   }
 
   /* ---------- Rok w stopce ---------- */
@@ -371,5 +437,13 @@
       }
       form.reset();
     });
+  }
+
+  } catch (err) {
+    /* Awaryjne odsłonięcie treści + log diagnostyczny, gdyby cokolwiek zawiodło. */
+    revealAll();
+    if (window.console && console.error) {
+      console.error('KOLSYSTEM init error:', err);
+    }
   }
 })();

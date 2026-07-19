@@ -6,26 +6,6 @@
 
 /* ---------- 0. Fonty (self-hosted, bez połączeń zewnętrznych) ---------- */
 
-/* Chakra Petch 500 - latin-ext */
-@font-face {
-  font-family: "Chakra Petch";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/chakra-petch-500-latin-ext.woff2") format("woff2");
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
-}
-
-/* Chakra Petch 500 - latin */
-@font-face {
-  font-family: "Chakra Petch";
-  font-style: normal;
-  font-weight: 500;
-  font-display: swap;
-  src: url("fonts/chakra-petch-500-latin.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-}
-
 /* Chakra Petch 600 - latin-ext */
 @font-face {
   font-family: "Chakra Petch";
@@ -708,6 +688,10 @@ p { max-width: 65ch; }
 }
 
 @keyframes flow { to { stroke-dashoffset: -28; } }
+
+/* Wstrzymanie animacji w pętli, gdy hero jest poza ekranem (oszczędność CPU) */
+.hero.is-offscreen .diagram-flow path,
+.hero.is-offscreen .cursor { animation-play-state: paused; }
 
 /* Powiązania weryfikacyjne między gałęziami modelu V */
 .v-verif path {
@@ -1730,4 +1714,74 @@ p { max-width: 65ch; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-actions .btn { width: 100%; text-align: center; }
   .to-top { right: 1rem; bottom: 1rem; }
+}
+
+/* ---------- 18. Strona prawna (polityka prywatności) ---------- */
+
+.legal-back { margin-bottom: 1.4rem; }
+
+.legal-back a {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted-l);
+  text-decoration: none;
+}
+.legal-back a:hover,
+.legal-back a:focus-visible { color: var(--text-dark); }
+
+/* Tytuł na jasnym tle - nadpisuje domyślny biały kolor h1 */
+.legal-title {
+  color: var(--text-dark);
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+}
+
+.legal { max-width: 52rem; }
+
+.legal > * + * { margin-top: 0.95rem; }
+
+.legal h2 {
+  margin-top: 2.6rem;
+  font-size: clamp(1.15rem, 2.4vw, 1.45rem);
+  color: var(--text-dark);
+}
+.legal h2:first-child { margin-top: 0; }
+
+.legal p { color: var(--muted-l); }
+.legal strong { color: var(--text-dark); }
+
+.legal ul.legal-list {
+  list-style: disc;
+  padding-left: 1.25rem;
+  max-width: 65ch;
+  color: var(--muted-l);
+}
+.legal ul.legal-list li { margin-bottom: 0.45rem; }
+.legal ul.legal-list li:last-child { margin-bottom: 0; }
+
+.legal a {
+  color: var(--text-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  text-decoration-color: var(--yellow);
+}
+.legal a:hover,
+.legal a:focus-visible { text-decoration-color: var(--text-dark); }
+
+.legal code {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+  background: var(--gray-100);
+  border: 1px solid var(--border-l);
+  border-radius: 4px;
+  padding: 0.08em 0.4em;
+}
+
+.legal-updated {
+  margin-top: 2.6rem;
+  padding-top: 1.2rem;
+  border-top: 1px solid var(--border-l);
+  font-size: 0.85rem;
+  color: var(--muted-l);
 }
