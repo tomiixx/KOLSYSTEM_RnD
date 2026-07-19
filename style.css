@@ -332,22 +332,8 @@ p { max-width: 65ch; }
 .section--dark p, .section--navy p { color: var(--muted-d); }
 .section--light p, .section--gray p { color: var(--muted-l); }
 
-/* Nagłówek sekcji: numer w mono + tytuł + żółta linia */
+/* Nagłówek sekcji: tytuł + żółta linia */
 .section-head { margin-bottom: clamp(2.2rem, 5vw, 3.5rem); }
-
-.section-num {
-  display: inline-block;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: var(--yellow);
-  border: 1px solid currentColor;
-  padding: 0.15rem 0.55rem;
-  border-radius: 4px;
-  margin-bottom: 0.9rem;
-}
-
-.section--light .section-num,
-.section--gray .section-num { color: #b89700; }
 
 .section-head h2 { position: relative; padding-bottom: 0.85rem; }
 
@@ -594,7 +580,7 @@ p { max-width: 65ch; }
 .hero-inner {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
   align-items: center;
   gap: clamp(2rem, 5vw, 4rem);
   padding: clamp(3rem, 6vw, 5rem) 0;
@@ -653,28 +639,13 @@ p { max-width: 65ch; }
   margin-top: 2.2rem;
 }
 
-.hero-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 2.6rem;
-}
-
-.hero-tags li {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--muted-d);
-  border: 1px solid var(--border-d);
-  padding: 0.3rem 0.7rem;
-  border-radius: 999px;
-}
-
 /* Diagram SVG w hero */
 .hero-visual {
   min-width: 0;
   position: relative;
   padding: 0.6rem;
-  background: radial-gradient(closest-side, rgba(255, 210, 0, 0.05), transparent);
+  align-self: start;
+  margin-top: 5rem;
 }
 
 /* Narożniki "blueprint" wokół diagramu */
@@ -718,36 +689,6 @@ p { max-width: 65ch; }
   fill: var(--yellow);
   text-anchor: start;
   opacity: 0.9;
-}
-
-.v-title {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  letter-spacing: 0.08em;
-  fill: var(--muted-d);
-}
-
-/* Legenda diagramu */
-.v-legend text {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.05em;
-  fill: var(--muted-d);
-}
-
-.v-legend .lg-verif {
-  fill: none;
-  stroke: var(--muted-d);
-  stroke-width: 1;
-  stroke-dasharray: 4 6;
-  opacity: 0.55;
-}
-
-.v-legend .lg-flow {
-  fill: none;
-  stroke: var(--yellow);
-  stroke-width: 1.5;
-  stroke-dasharray: 5 9;
 }
 
 .diagram-links path {
@@ -844,17 +785,6 @@ p { max-width: 65ch; }
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
   margin-top: clamp(2.5rem, 5vw, 4rem);
-  counter-reset: adv;
-}
-
-.advantage::before {
-  counter-increment: adv;
-  content: "0" counter(adv);
-  display: block;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: #b89700;
-  margin-bottom: 0.55rem;
 }
 
 .advantage {
@@ -886,20 +816,6 @@ p { max-width: 65ch; }
   border-radius: var(--radius);
   padding: 1.6rem 1.5rem;
   transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-/* Numeracja techniczna kart usług (S01–S10) */
-.services-grid { counter-reset: svc; }
-
-.services-grid .card::after {
-  counter-increment: svc;
-  content: "S" counter(svc, decimal-leading-zero);
-  position: absolute;
-  top: 1.15rem;
-  right: 1.25rem;
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: #b3bcc5;
 }
 
 .card:hover {
@@ -1108,33 +1024,47 @@ p { max-width: 65ch; }
 
 .standards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.2rem;
 }
 
 .standard {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
   background: var(--anthracite);
   border: 1px solid var(--border-d);
   border-radius: var(--radius);
-  padding: 1.5rem;
-  transition: border-color 0.2s ease, transform 0.2s ease;
+  padding: 1.65rem 1.6rem;
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-.standard:hover { border-color: var(--yellow); transform: translateY(-3px); }
+.standard:hover {
+  border-color: var(--yellow);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 32px rgba(0, 0, 0, 0.28);
+}
 
 .standard-code {
-  display: inline-block;
+  align-self: flex-start;
   font-family: var(--font-mono);
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   font-weight: 500;
+  letter-spacing: 0.02em;
   color: var(--yellow);
+  background: rgba(255, 210, 0, 0.08);
   border: 1px solid rgba(255, 210, 0, 0.4);
   border-radius: 5px;
-  padding: 0.25rem 0.65rem;
-  margin-bottom: 0.9rem;
+  padding: 0.28rem 0.7rem;
 }
 
-.standard p { font-size: 0.92rem; }
+.standard h3 {
+  margin: 0.15rem 0 0;
+  font-size: 1.12rem;
+  color: var(--white);
+}
+
+.standard p { margin: 0; font-size: 0.92rem; }
 
 .disclaimer {
   margin-top: clamp(2rem, 4vw, 3rem);
@@ -1211,17 +1141,6 @@ p { max-width: 65ch; }
 }
 
 .area:hover { border-color: var(--yellow); transform: translateY(-3px); }
-
-.area-index {
-  flex-shrink: 0;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-  color: #b89700;
-  border: 1px solid currentColor;
-  border-radius: 5px;
-  padding: 0.3rem 0.5rem;
-  margin-top: 0.15rem;
-}
 
 .area h3 { margin-bottom: 0.45rem; }
 .area p { font-size: 0.93rem; }
@@ -1664,7 +1583,7 @@ p { max-width: 65ch; }
 @media (max-width: 62rem) {
   /* Hero: diagram pod tekstem */
   .hero-inner { grid-template-columns: 1fr; }
-  .hero-visual { max-width: 34rem; }
+  .hero-visual { max-width: 34rem; margin-top: 0; align-self: auto; }
 
   .about-grid,
   .rail-grid,
@@ -1693,6 +1612,8 @@ p { max-width: 65ch; }
   .process-num { margin-bottom: 0; box-shadow: 0 0 0 6px var(--gray-100); }
 
   .areas-list { grid-template-columns: 1fr; }
+
+  .standards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
 @media (max-width: 56rem) {
@@ -1743,6 +1664,7 @@ p { max-width: 65ch; }
 @media (max-width: 40rem) {
   .form-row { grid-template-columns: 1fr; }
   .advantages { grid-template-columns: 1fr; }
+  .standards-grid { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-actions .btn { width: 100%; text-align: center; }
   .to-top { right: 1rem; bottom: 1rem; }
