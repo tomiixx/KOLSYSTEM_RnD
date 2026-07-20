@@ -12,7 +12,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fonts/chakra-petch-600-latin-ext.woff2") format("woff2");
+  src: url("../fonts/chakra-petch-600-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -22,7 +22,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fonts/chakra-petch-600-latin.woff2") format("woff2");
+  src: url("../fonts/chakra-petch-600-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -32,7 +32,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("fonts/chakra-petch-700-latin-ext.woff2") format("woff2");
+  src: url("../fonts/chakra-petch-700-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -42,7 +42,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("fonts/chakra-petch-700-latin.woff2") format("woff2");
+  src: url("../fonts/chakra-petch-700-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -52,7 +52,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("fonts/jetbrains-mono-400-latin-ext.woff2") format("woff2");
+  src: url("../fonts/jetbrains-mono-400-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -62,7 +62,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("fonts/jetbrains-mono-400-latin.woff2") format("woff2");
+  src: url("../fonts/jetbrains-mono-400-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -72,7 +72,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("fonts/jetbrains-mono-500-latin-ext.woff2") format("woff2");
+  src: url("../fonts/jetbrains-mono-500-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -82,7 +82,7 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("fonts/jetbrains-mono-500-latin.woff2") format("woff2");
+  src: url("../fonts/jetbrains-mono-500-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -92,7 +92,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fonts/jetbrains-mono-600-latin-ext.woff2") format("woff2");
+  src: url("../fonts/jetbrains-mono-600-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -102,7 +102,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fonts/jetbrains-mono-600-latin.woff2") format("woff2");
+  src: url("../fonts/jetbrains-mono-600-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -112,7 +112,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("fonts/titillium-web-400-latin-ext.woff2") format("woff2");
+  src: url("../fonts/titillium-web-400-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -122,7 +122,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("fonts/titillium-web-400-latin.woff2") format("woff2");
+  src: url("../fonts/titillium-web-400-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -132,7 +132,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fonts/titillium-web-600-latin-ext.woff2") format("woff2");
+  src: url("../fonts/titillium-web-600-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -142,7 +142,7 @@
   font-style: normal;
   font-weight: 600;
   font-display: swap;
-  src: url("fonts/titillium-web-600-latin.woff2") format("woff2");
+  src: url("../fonts/titillium-web-600-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -152,7 +152,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("fonts/titillium-web-700-latin-ext.woff2") format("woff2");
+  src: url("../fonts/titillium-web-700-latin-ext.woff2") format("woff2");
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 
@@ -162,7 +162,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("fonts/titillium-web-700-latin.woff2") format("woff2");
+  src: url("../fonts/titillium-web-700-latin.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -435,46 +435,14 @@ p { max-width: 65ch; }
   text-decoration: none;
 }
 
-.logo-text {
-  display: inline-flex;
-  align-items: center;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 1.2rem;
-  letter-spacing: 0.06em;
-  color: var(--white);
-  white-space: nowrap;
-}
-
-/* Znak słowny: KOL (biel) + SYSTEM (żółć safety) — złożenie KOLej + SYSTEM
-   wyrażone kolorem, bez separatora. */
-.logo-sys {
-  color: var(--yellow);
-}
-
-/* Sygnet 2oo3 obok napisu (lockup) */
-.logo-mark {
+.logo-image {
   height: 1.7rem;
   width: auto;
   flex: 0 0 auto;
-  color: var(--white);      /* węzły i linie = currentColor */
-  /* korekta optyczna: wersaliki Chakra Petch siedzą wyżej w em-boxie,
-     więc znak podnosimy o ~4% jego wysokości, by środek trafił w środek liter */
-  transform: translateY(-4%);
-}
-.logo-mark .lm-voter {
-  fill: var(--yellow);      /* węzeł-majoryzator */
-}
-.logo-mark .lm-check {
-  stroke: var(--graphite);  /* fiszka √ na żółtym węźle */
 }
 
 /* W nagłówku logotyp większy niż w stopce */
-.site-header .logo { gap: 0.7rem; }
-.site-header .logo-text { font-size: 1.55rem; }
-/* Sygnet w nagłówku to pełny badge na żółtym rewersie - bez korekty optycznej
-   stosowanej dla znaku bez tła (patrz .logo-mark) */
-.site-header .logo-mark { height: 2.25rem; transform: none; }
+.site-header .logo-image { height: 2.25rem; }
 
 /* Nawigacja desktop */
 .site-nav ul {
@@ -1825,10 +1793,8 @@ p { max-width: 65ch; }
   .cards-grid,
   .tech-grid,
   .value-grid { grid-template-columns: 1fr; }
-  /* Na bardzo wąskich ekranach zmniejszamy logo w nagłówku, by zmieściło się
-     obok przycisku menu przy powiększonej typografii */
-  .site-header .logo-text { font-size: 1.3rem; }
-  .site-header .logo-mark { height: 1.95rem; }
+  /* Na bardzo wąskich ekranach zmniejszamy logo, aby zmieściło się obok menu. */
+  .site-header .logo-image { height: 1.95rem; }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-actions .btn { width: 100%; text-align: center; }
   .cta-band-btn { width: 100%; text-align: center; }

@@ -1,94 +1,71 @@
-# System identyfikacji — KOLSYSTEM Sp. z o.o.
+# KOLSYSTEM - pakiet marki
 
-Logo w kierunku **typograficznym**: mocny, niepodzielony znak słowny w foncie strony
-(Chakra Petch 700), w którym **złożenie nazwy wyraża kolor**, a nie separator.
+Kompletny pakiet identyfikacji wizualnej KOLSYSTEM Sp. z o.o. Wersja 1.0, lipiec 2026.
 
-## Koncept
+## Szybki wybór pliku
 
-`KOLSYSTEM` — jedno słowo, bez dwukropka. Nazwa to złożenie **KOLej + SYSTEM**;
-zamiast rozdzielać oba człony znakiem interpunkcyjnym, oddaje je **kontrast koloru**:
+| Potrzeba | Zalecany plik |
+|---|---|
+| Logo na ciemnym tle | `logos/svg/kolsystem-lockup-primary.svg` |
+| Logo na jasnym tle | `logos/svg/kolsystem-lockup-light.svg` |
+| Sam napis na ciemnym tle | `logos/svg/kolsystem-wordmark-primary.svg` |
+| Sam napis na jasnym lub żółtym tle | `logos/svg/kolsystem-wordmark-light.svg` |
+| Logo do programu biurowego | odpowiedni plik z `logos/png/` |
+| Logo wektorowe do druku | odpowiedni plik z `logos/pdf/` lub `logos/svg/` |
+| Avatar | `digital/icons/avatar-512.png` |
+| Favicon | `digital/icons/kolsystem-favicon.svg` lub `digital/icons/favicon.ico` |
+| Grafika do udostępniania strony | `digital/social/kolsystem-social-share-1200x630.png` |
+| Wizytówka do drukarni | `print/business-card/KOLSYSTEM-business-card-90x50mm-bleed3mm-CMYK.pdf` |
+| Zasady marki | `guidelines/KOLSYSTEM-brand-guidelines.pdf` |
 
-- **`KOL`** — biały tusz (`#f5f7fa`),
-- **`SYSTEM`** — żółty „safety" (`#FFD200`).
+## Zawartość
 
-Dzięki temu marka czyta się jako jedna całość, a jednocześnie niesie swój rodowód.
-Znika przy tym wieloznaczność dwukropka z v1 (kojarzonego z adresem URL, godziną
-czy proporcją) i „gadżetowy" charakter sparowanych kropek.
+```text
+brand/
+|-- digital/
+|   |-- icons/          # favicony, avatar, ikony aplikacyjne
+|   `-- social/         # Open Graph 1200 x 630 oraz źródło SVG
+|-- fonts/
+|   |-- desktop/        # pełne TTF do materiałów marki
+|   `-- licenses/       # licencje SIL Open Font License
+|-- guidelines/         # pełne zasady w Markdown i księga PDF
+|-- logos/
+|   |-- svg/            # pliki nadrzędne i zalecane źródła
+|   |-- png/            # eksporty rastrowe z przezroczystością
+|   `-- pdf/            # eksporty wektorowe do biura i DTP
+|-- print/
+|   `-- business-card/  # wizytówka, proof i edytowalne źródła
+`-- tools/              # generator wszystkich eksportów
+```
 
-> Poprzednia wersja z „dwukropkiem systemowym" jest zarchiwizowana w [`v1/`](v1/).
+## Źródła i eksport
 
-## Kolory
+Nadrzędne są pliki SVG w `logos/svg/`, `digital/` i `print/**/source/`. Eksporty PNG/PDF
+oraz kopie produkcyjne strony można odtworzyć poleceniem:
 
-| Rola | Nazwa | HEX |
-|------|-------|-----|
-| Tło główne / tusz na jasnym | grafit | `#14181d` |
-| Panele na ciemnym | antracyt | `#1b2129` |
-| Sekcja kolejowa | granat | `#0f1726` |
-| Tusz „KOL" na ciemnym | biel | `#f5f7fa` |
-| **Tusz „SYSTEM" / akcent** | **żółty safety** | **`#FFD200`** |
-| Tekst na żółtym | grafit | `#14181d` |
+```powershell
+python -m pip install -r brand/tools/requirements.txt
+python brand/tools/build_brand_assets.py
+```
 
-## Typografia
+Generator:
 
-- **Chakra Petch 700** — wordmark i nagłówki (`--font-display`).
-- **Titillium Web** — tekst ciągły (`--font-body`).
-- **JetBrains Mono** — dane techniczne, etykiety (`--font-mono`).
+- buduje pełne fonty desktopowe z podzbiorów WOFF2 strony,
+- eksportuje logo do PNG i PDF,
+- generuje favicony, ikony i grafikę social,
+- tworzy dwustronny PDF wizytówki CMYK z TrimBox i spadem,
+- tworzy księgę marki PDF,
+- kopiuje minimalny zestaw produkcyjny do `assets/brand/`.
 
-W plikach logo litery są **skonwertowane na krzywe** (kontury wektorowe), więc renderują się
-identycznie niezależnie od tego, czy font jest zainstalowany. Na stronie logo składane jest
-z żywego fontu + koloru CSS (`.logo-text` + `.logo-sys`), aby pozostać ostre i lekkie.
+Nie edytuj ręcznie plików wygenerowanych, jeśli zmiana powinna przetrwać kolejny eksport.
 
-## Sygnet
+## Ważne rozdzielenie
 
-Symbol **majoryzatora 2oo3** (redundancja / głosowanie większościowe) w zaokrąglonym kwadracie:
-**trzy białe węzły wejściowe** zbiegają się do **żółtego węzła‑majoryzatora** ze znakiem
-walidacji (√). Odwołuje się do rdzenia pracy KOLSYSTEM — **bezpieczeństwa funkcjonalnego**
-(architektury fault‑tolerant), **weryfikacji i walidacji** oraz **systemów** — bez wątku kolejowego.
-Zastępuje wcześniejszy monogram i daje marce czytelny znak pod avatar / app‑icon / favicon.
+`brand/` jest kompletnym pakietem do wykorzystania przez drukarnię, studio DTP, partnera lub
+zespół marketingu. `assets/brand/` zawiera wyłącznie lekkie kopie wymagane przez stronę.
+Serwis internetowy nie odwołuje się bezpośrednio do katalogu `brand/`.
 
-Favicon używa **uproszczonego wariantu** (grubsze linie, bez wewnętrznego √), aby pozostać
-czytelny do 16 px.
+## Kontakt i odpowiedzialność
 
-## Pliki
-
-| Plik | Zastosowanie |
-|------|--------------|
-| `kolsystem-wordmark-primary.svg` | Podstawowy — „KOL" biały + „SYSTEM" żółty, **na ciemnym tle** |
-| `kolsystem-wordmark-light.svg` | **Na jasnym tle** — jednokolorowy grafit (żółć nie ma kontrastu na jasnym; podział koloru żyje na ciemnym) |
-| `kolsystem-wordmark-mono-white.svg` | Jednokolorowy biały (knockout, foto, tłoczenie) |
-| `kolsystem-wordmark-mono-black.svg` | Jednokolorowy grafit — **również na żółtym tle** |
-| `kolsystem-icon.svg` | Sygnet 2oo3 w zaokrąglonym kwadracie — avatar, social, app icon |
-| `kolsystem-icon-on-yellow.svg` | Sygnet 2oo3 na żółtym rewersie (grafit) |
-| `kolsystem-favicon.svg` | Sygnet 2oo3, wariant uproszczony — favicon (czytelny do 16 px) |
-
-Rastrowe (wygenerowane z sygnetu): [`../favicon.ico`](../favicon.ico) (16/32/48/64) oraz
-[`../apple-touch-icon.png`](../apple-touch-icon.png) (180×180).
-
-## Pole ochronne i rozmiary minimalne
-
-- **Pole ochronne:** dookoła logo zachowaj wolną przestrzeń równą **wysokości wielkiej litery „K"**.
-- **Wordmark — min. szerokość:** 90 px (ekran) / 24 mm (druk).
-- **Sygnet — min.:** 16 px (ekran) / 6 mm (druk).
-
-## Zasady (do / don't)
-
-**Rób:**
-- Na ciemnym tle używaj wersji `primary` (biały „KOL" + żółty „SYSTEM").
-- Na jasnym tle używaj `light` (grafit), a na żółtym — `mono-black`.
-- Utrzymuj jeden odcień żółci `#FFD200` w całym systemie.
-- Dbaj o kontrast tła (WCAG AA).
-
-**Nie rób:**
-- Nie wstawiaj z powrotem dwukropka ani żadnego separatora między „KOL" a „SYSTEM".
-- Nie koloruj „SYSTEM" na żółto na jasnym tle (brak kontrastu) — użyj wtedy `light`.
-- Nie rozstrzeliwuj, nie ściskaj, nie pochylaj, nie obracaj wordmarku.
-- Nie dodawaj cienia, obrysu, gradientu ani efektów.
-- Nie zmieniaj podziału koloru (np. „KOL" na żółto).
-
-## Do zrobienia (opcjonalnie)
-
-- `../og-image.png` (1200×630) — warto odświeżyć zgodnie z nowym znakiem (bez dwukropka).
-
----
-
-Pliki źródłowe wygenerowane z `fonts/chakra-petch-700-latin.woff2` (Chakra Petch, OFL).
+Przed dużym nakładem drukarskim zawsze wykonaj proof z profilem ICC wskazanym przez drukarnię.
+Pytania dotyczące marki: `kontakt@kolsystem.pl`.
