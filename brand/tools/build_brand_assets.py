@@ -815,6 +815,11 @@ def copy_web_assets() -> None:
 def main() -> None:
     ensure_directories()
     build_desktop_fonts()
+    # Warianty oparte na hero strony: logo pionowe + grafiki social (źródła SVG
+    # z krzywymi + PNG). Muszą powstać po fontach desktop, a przed eksportem logo
+    # (build_logo_exports podchwytuje kolsystem-stacked-*.svg z logos/svg).
+    import build_hero_assets
+    build_hero_assets.main()
     register_fonts()
     build_logo_exports()
     build_digital_exports()
