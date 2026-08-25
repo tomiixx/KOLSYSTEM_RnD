@@ -172,7 +172,7 @@
   /* Kolory bazowe */
   --graphite:   #14181d;   /* tło ciemne główne */
   --anthracite: #1b2129;   /* panele na ciemnym */
-  --navy:       #0f1726;   /* ciemny granat (sekcja kolejowa) */
+  --navy:       #0f1726;   /* ciemny granat (sekcja przemysłowa) */
   --navy-panel: #16233a;
   --white:      #f5f7fa;
   --gray-100:   #f3f5f7;   /* tło jasnych sekcji */
@@ -814,7 +814,7 @@ p { max-width: 65ch; }
 .card h3 { margin-bottom: 0.55rem; }
 .card p { font-size: 0.93rem; }
 
-/* ---------- 8. Branża kolejowa ---------- */
+/* ---------- 8. Przemysł i systemy krytyczne ---------- */
 
 .rail-lead {
   font-size: 1.18rem;
