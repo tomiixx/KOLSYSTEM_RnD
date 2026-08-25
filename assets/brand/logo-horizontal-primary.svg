@@ -2,18 +2,20 @@
   <title>KOLSYSTEM - logo poziome na ciemne tło</title>
   <g transform="scale(1.484375)">
     <rect width="512" height="512" rx="116" fill="#FFD200"/>
-    <g stroke="#14181d" stroke-width="24" stroke-linecap="round">
-      <line x1="146" y1="150" x2="352" y2="256"/>
-      <line x1="146" y1="256" x2="352" y2="256"/>
-      <line x1="146" y1="362" x2="352" y2="256"/>
-    </g>
     <g fill="#14181d">
-      <circle cx="146" cy="150" r="34"/>
-      <circle cx="146" cy="256" r="34"/>
-      <circle cx="146" cy="362" r="34"/>
+      <rect x="113.83" y="108.97" width="114.77" height="20.65"/>
+      <rect x="207.96" y="108.97" width="20.65" height="88.91"/>
+      <rect x="207.96" y="177.24" width="142.04" height="20.65"/>
+      <rect x="113.83" y="245.68" width="236.17" height="20.65"/>
+      <rect x="113.83" y="382.38" width="114.77" height="20.65"/>
+      <rect x="207.96" y="314.12" width="20.65" height="88.91"/>
+      <rect x="207.96" y="314.12" width="142.04" height="20.65"/>
+      <circle cx="113.83" cy="119.3" r="33.96"/>
+      <circle cx="113.83" cy="256" r="33.96"/>
+      <circle cx="113.83" cy="392.7" r="33.96"/>
     </g>
-    <circle cx="352" cy="256" r="66" fill="#14181d"/>
-    <path d="M322 260 345 284 388 230" fill="none" stroke="#FFD200" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="380.25" cy="256" r="90.11" fill="#14181d"/>
+    <path d="M339.29 261.46 370.69 294.23 429.4 220.5" fill="none" stroke="#FFD200" stroke-width="19.97" stroke-linecap="round" stroke-linejoin="round"/>
   </g>
   <g transform="translate(900 180) scale(.5714286)">
     <path fill="#f5f7fa" d="M65 0H201V293H307L476 0H629L424 349L646 700H490L306 409H201V700H65Z M766 585V115L881 0H1241L1356 115V585L1241 700H881ZM1169 584 1220 533V167L1169 116H953L902 167V533L953 584Z M1536 0H1672V585H2022V700H1536Z"/>

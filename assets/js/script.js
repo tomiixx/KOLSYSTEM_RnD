@@ -228,7 +228,7 @@
     if (!mapEmbed || mapEmbed.querySelector('iframe')) return;
     var iframe = document.createElement('iframe');
     iframe.src = mapEmbed.getAttribute('data-src');
-    iframe.title = 'Mapa dojazdu - KOLSYSTEM Sp. z o.o., ul. Radockiego 76/8, 40-645 Katowice';
+    iframe.title = 'Mapa dojazdu - KOLSYSTEM Sp. z o.o., ul. Uniwersytecka 13, 40-007 Katowice';
     iframe.loading = 'lazy';
     iframe.referrerPolicy = 'no-referrer-when-downgrade';
     iframe.allowFullscreen = true;

@@ -1,15 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="KOLSYSTEM">
-  <title>KOLSYSTEM - favicon: majoryzator 2oo3 (wariant uproszczony, czytelny do 16 px)</title>
-  <rect width="512" height="512" rx="96" fill="#14181d"/>
-  <g stroke="#f5f7fa" stroke-width="34" stroke-linecap="round">
-    <line x1="138" y1="146" x2="346" y2="256"/>
-    <line x1="138" y1="256" x2="346" y2="256"/>
-    <line x1="138" y1="366" x2="346" y2="256"/>
-  </g>
+  <title>KOLSYSTEM - sygnet: majoryzator 2oo3 (redundancja / walidacja)</title>
+  <rect width="512" height="512" rx="116" fill="#14181d"/>
   <g fill="#f5f7fa">
-    <circle cx="138" cy="146" r="40"/>
-    <circle cx="138" cy="256" r="40"/>
-    <circle cx="138" cy="366" r="40"/>
+    <rect x="113.83" y="108.97" width="114.77" height="20.65"/>
+    <rect x="207.96" y="108.97" width="20.65" height="88.91"/>
+    <rect x="207.96" y="177.24" width="142.04" height="20.65"/>
+    <rect x="113.83" y="245.68" width="236.17" height="20.65"/>
+    <rect x="113.83" y="382.38" width="114.77" height="20.65"/>
+    <rect x="207.96" y="314.12" width="20.65" height="88.91"/>
+    <rect x="207.96" y="314.12" width="142.04" height="20.65"/>
+    <circle cx="113.83" cy="119.3" r="33.96"/>
+    <circle cx="113.83" cy="256" r="33.96"/>
+    <circle cx="113.83" cy="392.7" r="33.96"/>
   </g>
-  <circle cx="352" cy="256" r="78" fill="#FFD200"/>
+  <circle cx="380.25" cy="256" r="90.11" fill="#FFD200"/>
+  <path d="M339.29 261.46 370.69 294.23 429.4 220.5" fill="none" stroke="#14181d" stroke-width="19.97" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
