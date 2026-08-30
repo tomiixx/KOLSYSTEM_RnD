@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KOLSYSTEM – IEC 61508 Functional Safety | Industrial Engineering</title>
+<meta content="KOLSYSTEM Sp. z o.o. - safety-critical systems engineering for industry and a range of sectors. IEC 61508 functional safety, Model-Based Design, MATLAB, Simulink, verification and validation." name="description"/>
+<meta content="index,follow" name="robots"/>
+<meta content="KOLSYSTEM Sp. z o.o." name="author"/>
+<meta content="#14181d" name="theme-color"/>
+<link href="https://kolsystem.pl/en/" rel="canonical"/>
+<link href="https://kolsystem.pl/" hreflang="pl" rel="alternate"/>
+<link href="https://kolsystem.pl/en/" hreflang="en" rel="alternate"/>
+<link href="https://kolsystem.pl/" hreflang="x-default" rel="alternate"/>
+<link href="../assets/brand/favicon.svg" rel="icon" type="image/svg+xml"/>
+<link href="../assets/brand/favicon.ico" rel="icon" type="image/x-icon"/>
+<link href="../assets/brand/apple-touch-icon.png" rel="apple-touch-icon"/>
+<!-- Open Graph -->
+<meta content="website" property="og:type"/>
+<meta content="KOLSYSTEM" property="og:site_name"/>
+<meta content="KOLSYSTEM – IEC 61508 Functional Safety" property="og:title"/>
+<meta content="IEC 61508 functional safety, Model-Based Design, MATLAB and Simulink. Safety-critical systems engineering for industry and a range of sectors." property="og:description"/>
+<meta content="https://kolsystem.pl/en/" property="og:url"/>
+<meta content="en_GB" property="og:locale"/>
+<meta content="https://kolsystem.pl/assets/brand/social-share-1200x630.png" property="og:image"/>
+<meta content="image/png" property="og:image:type"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+<meta content="KOLSYSTEM – Safety-critical systems engineering. IEC 61508, Model-Based Design, system lifecycle diagram." property="og:image:alt"/>
+<!-- Twitter Card -->
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="KOLSYSTEM – IEC 61508 Functional Safety" name="twitter:title"/>
+<meta content="IEC 61508 functional safety, Model-Based Design, MATLAB and Simulink. Safety-critical systems engineering for industry and a range of sectors." name="twitter:description"/>
+<meta content="https://kolsystem.pl/assets/brand/social-share-1200x630.png" name="twitter:image"/>
+<!-- Fonty hostowane lokalnie (reguły @font-face w style.css) -->
+<link as="font" crossorigin="" href="../assets/fonts/titillium-web-400-latin.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../assets/fonts/titillium-web-400-latin-ext.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../assets/fonts/chakra-petch-700-latin.woff2" rel="preload" type="font/woff2"/>
+<link as="font" crossorigin="" href="../assets/fonts/chakra-petch-700-latin-ext.woff2" rel="preload" type="font/woff2"/>
+<link href="../assets/css/style.css" rel="stylesheet"/>
+<!-- Dane strukturalne dla wyszukiwarek -->
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://kolsystem.pl/#organization",
+      "name": "KOLSYSTEM Sp. z o.o.",
+      "legalName": "KOLSYSTEM Spółka z ograniczoną odpowiedzialnością",
+      "url": "https://kolsystem.pl/",
+      "email": "biuro@kolsystem.pl",
+      "telephone": "+48600580325",
+      "taxID": "9542781688",
+      "vatID": "PL9542781688",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "ul. Uniwersytecka 13",
+        "postalCode": "40-007",
+        "addressLocality": "Katowice",
+        "addressRegion": "śląskie",
+        "addressCountry": "PL"
+      },
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "contactType": "customer service",
+        "email": "biuro@kolsystem.pl",
+        "telephone": "+48600580325",
+        "availableLanguage": [
+          "pl",
+          "en"
+        ]
+      },
+      "areaServed": "PL",
+      "hasMap": "https://maps.google.com/maps?q=ul.+Uniwersytecka+13,+40-007+Katowice",
+      "knowsAbout": [
+        "inżynieria systemów krytycznych",
+        "bezpieczeństwo funkcjonalne",
+        "Model-Based Design",
+        "MATLAB",
+        "Simulink",
+        "IEC Certification Kit",
+        "IEC 61508",
+        "systemy E/E/PE",
+        "automatyka przemysłowa",
+        "Safety Integrity Level (SIL)",
+        "weryfikacja i walidacja",
+        "Sterowniki PLC z oprogramowaniem SIL4",
+        "systemy embedded"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Engineering services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Systems engineering"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Requirements analysis and management"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Model-Based Design"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Modelling and simulation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Embedded systems development"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Verification and validation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Test automation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Functional safety"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Project documentation support"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Consulting for R&D teams"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://kolsystem.pl/#website",
+      "url": "https://kolsystem.pl/",
+      "name": "KOLSYSTEM",
+      "inLanguage": "pl-PL",
+      "publisher": {
+        "@id": "https://kolsystem.pl/#organization"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://kolsystem.pl/#webpage",
+      "url": "https://kolsystem.pl/",
+      "name": "KOLSYSTEM – Safety-critical systems engineering",
+      "description": "Expert engineering company from Katowice, Poland: IEC 61508 functional safety, safety-critical systems for industry, Model-Based Design, MATLAB and Simulink, verification and validation.",
+      "inLanguage": "pl-PL",
+      "isPartOf": {
+        "@id": "https://kolsystem.pl/#website"
+      },
+      "about": {
+        "@id": "https://kolsystem.pl/#organization"
+      }
+    }
+  ]
+}</script>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to content</a>
+<!-- ============================== NAGŁÓWEK ============================== -->
+<header class="site-header" id="top">
+<div class="container header-inner">
+<a aria-label="KOLSYSTEM – home" class="logo" href="#top">
+<img alt="" class="logo-image" height="760" src="../assets/brand/logo-horizontal-primary.svg" width="4510"/>
+</a>
+<button aria-controls="site-nav" aria-expanded="false" class="nav-toggle" type="button">
+<span class="nav-toggle-label">Menu</span>
+<span aria-hidden="true" class="nav-toggle-bars"><i></i><i></i><i></i></span>
+</button>
+<nav aria-label="Main navigation" class="site-nav" id="site-nav">
+<ul>
+<li><a href="#o-firmie">About</a></li>
+<li><a href="#uslugi">Services</a></li>
+<li><a href="#przemysl">Industry</a></li>
+<li><a href="#technologie">Technologies</a></li>
+<li><a href="#standardy">Standards</a></li>
+<li><a href="#proces">Process</a></li>
+<li><a href="#obszary">Areas</a></li>
+<li><a class="nav-cta" href="#kontakt">Contact</a></li>
+</ul>
+</nav>
+<div aria-label="Language" class="lang-switch" role="group">
+<a href="/" hreflang="pl" lang="pl">PL</a>
+<a aria-current="true" class="is-active" href="/en/" hreflang="en" lang="en">EN</a>
+</div>
+</div>
+</header>
+<main id="main">
+<!-- ============================== HERO ============================== -->
+<section aria-label="Introduction" class="hero">
+<div aria-hidden="true" class="hero-bg"></div>
+<div class="container hero-inner">
+<div class="hero-copy">
+<p class="eyebrow" data-reveal="">IEC 61508 · Safety-critical systems · MBD<span aria-hidden="true" class="cursor"></span></p>
+<h1 class="d1" data-reveal="">Critical systems <span class="accent-underline">engineering</span></h1>
+<p class="hero-lead" data-delay="2" data-reveal="">
+            We support the development of industrial and other safety-critical systems in which safety, reliability and engineering process rigour are decisive. We work to IEC 61508, Model-Based Design and the MATLAB and Simulink toolchain.
+          </p>
+<div class="hero-actions" data-delay="3" data-reveal="">
+<a class="btn btn-primary" href="#uslugi">Explore our capabilities</a>
+<a class="btn btn-ghost" href="#kontakt">Talk to an engineer</a>
+</div>
+</div>
+<!-- Animowany diagram: przepływ MBD + odpowiedź skokowa -->
+<div aria-hidden="true" class="hero-visual" data-delay="3" data-reveal="">
+<svg class="hero-diagram" focusable="false" viewbox="4 28 732 448">
+<!-- Ścieżka cyklu (pod blokami) + animowany przepływ -->
+<g class="diagram-links">
+<path d="M86 68 120 136 154 204 188 272 222 340 370 440 488 390 522 340 556 272 590 204 624 136 658 68"></path>
+</g>
+<g class="diagram-flow">
+<path d="M86 68 120 136 154 204 188 272 222 340 370 440 488 390 522 340 556 272 590 204 624 136 658 68"></path>
+</g>
+<!-- Relacje weryfikacji i walidacji między gałęziami -->
+<g class="v-verif">
+<path d="M264 272H480"></path>
+<path d="M298 340H446"></path>
+</g>
+<!-- Fazy cyklu życia systemu -->
+<g class="diagram-blocks">
+<rect height="40" rx="5" width="140" x="16" y="48"></rect>
+<rect height="40" rx="5" width="140" x="50" y="116"></rect>
+<rect height="40" rx="5" width="140" x="84" y="184"></rect>
+<rect height="40" rx="5" width="140" x="118" y="252"></rect>
+<rect height="40" rx="5" width="140" x="152" y="320"></rect>
+<rect height="40" rx="5" width="140" x="300" y="420"></rect>
+<rect height="40" rx="5" width="140" x="418" y="370"></rect>
+<rect height="40" rx="5" width="140" x="452" y="320"></rect>
+<rect height="40" rx="5" width="140" x="486" y="252"></rect>
+<rect height="40" rx="5" width="140" x="520" y="184"></rect>
+<rect height="40" rx="5" width="140" x="554" y="116"></rect>
+<rect height="40" rx="5" width="140" x="588" y="48"></rect>
+<text class="v-num" x="18" y="42">01</text>
+<text class="v-num" x="52" y="110">02</text>
+<text class="v-num" x="86" y="178">03</text>
+<text class="v-num" x="120" y="246">04</text>
+<text class="v-num" x="154" y="314">05</text>
+<text class="v-num" x="302" y="414">06</text>
+<text class="v-num" x="420" y="364">07</text>
+<text class="v-num" x="454" y="314">08</text>
+<text class="v-num" x="488" y="246">09</text>
+<text class="v-num" x="522" y="178">10</text>
+<text class="v-num" x="556" y="110">11</text>
+<text class="v-num" x="590" y="42">12</text>
+<text x="86" y="73">CONCEPT</text>
+<text x="120" y="141">SYSTEM DEFINITION</text>
+<text x="154" y="209">RISK ANALYSIS</text>
+<text x="188" y="277">SYSTEM REQUIREMENTS</text>
+<text x="222" y="337">
+<tspan x="222">ARCHITECTURE &amp;</tspan>
+<tspan x="222" y="350">REQ. ALLOCATION</tspan>
+</text>
+<text x="370" y="437">
+<tspan x="370">DESIGN AND</tspan>
+<tspan x="370" y="450">IMPLEMENTATION</tspan>
+</text>
+<text x="488" y="395">MANUFACTURE</text>
+<text x="522" y="345">INTEGRATION</text>
+<text x="556" y="277">SYSTEM VALIDATION</text>
+<text x="590" y="209">SYSTEM ACCEPTANCE</text>
+<text x="624" y="133">
+<tspan x="624">OPERATION AND</tspan>
+<tspan x="624" y="146">MAINTENANCE</tspan>
+</text>
+<text x="658" y="73">DECOMMISSIONING</text>
+</g>
+</svg>
+</div>
+</div>
+</section>
+<!-- ============================== O FIRMIE ============================== -->
+<section aria-labelledby="o-firmie-h" class="section section--light" id="o-firmie">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="o-firmie-h">About</h2>
+</header>
+<div class="about-grid">
+<div class="about-copy" data-reveal="">
+<p class="section-lead">
+              KOLSYSTEM Sp. z o.o. is a small, expert engineering company based in Katowice, Poland. We specialise in the development, testing and verification of systems in which failure is not an option.
+            </p>
+<p>
+              We combine experience gained in the demanding railway environment with an IEC 61508-based approach to functional safety. On that basis we support industrial projects and work across sectors wherever the safety of a system function must be designed, verified and documented.
+            </p>
+<p>
+              We work in MATLAB and Simulink, using specialist toolboxes — including the IEC Certification Kit — that support modelling, testing, requirements analysis and the preparation of material for the conformity assessment process.
+            </p>
+</div>
+<aside aria-label="KOLSYSTEM w skrócie" class="spec-card" data-delay="2" data-reveal="">
+<h3 class="spec-title">At a glance</h3>
+<dl class="spec-list">
+<div>
+<dt>Profile</dt>
+<dd>Safety-critical systems engineering</dd>
+</div>
+<div>
+<dt>Foundation</dt>
+<dd>Functional safety · IEC 61508</dd>
+</div>
+<div>
+<dt>Experience</dt>
+<dd>Safety-critical systems, including railway</dd>
+</div>
+<div>
+<dt>Toolchain</dt>
+<dd>MATLAB · Simulink · IEC Certification Kit</dd>
+</div>
+<div>
+<dt>Engagement model</dt>
+<dd>Projects · team augmentation · consulting</dd>
+</div>
+<div>
+<dt>Head office</dt>
+<dd>Katowice, Poland</dd>
+</div>
+</dl>
+</aside>
+</div>
+<ul class="advantages">
+<li class="advantage" data-reveal="">
+<h3>Experienced specialists</h3>
+<p>Projects are led by engineers with many years of hands-on practice in safety-critical systems — from model to evidence documentation.</p>
+</li>
+<li class="advantage" data-delay="2" data-reveal="">
+<h3>Flexibility</h3>
+<p>A small team means short decision paths, a fast start and a scope matched to what the project actually needs.</p>
+</li>
+<li class="advantage" data-delay="3" data-reveal="">
+<h3>Direct contact</h3>
+<p>You talk directly to the engineers delivering your project — no intermediaries, no sales layer.</p>
+</li>
+</ul>
+</div>
+</section>
+<!-- ============================== MANIFEST ============================== -->
+<section aria-label="Our approach" class="statement">
+<div class="container" data-reveal="">
+<p class="statement-eyebrow">Our approach</p>
+<p class="statement-text">We build systems where <span>failure is not an option</span> — with process rigour, full requirements traceability and audit-ready evidence.</p>
+</div>
+</section>
+<!-- ============================== USŁUGI ============================== -->
+<section aria-labelledby="uslugi-h" class="section section--gray" id="uslugi">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="uslugi-h">Services</h2>
+<p class="section-sub">Capabilities spanning the full system lifecycle — from requirements to compliance evidence.</p>
+</header>
+<ul class="cards-grid services-grid">
+<li class="card" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<circle cx="12" cy="5" r="2.2"></circle>
+<circle cx="5" cy="19" r="2.2"></circle>
+<circle cx="12" cy="19" r="2.2"></circle>
+<circle cx="19" cy="19" r="2.2"></circle>
+<path d="M12 7.2v9.6M12 11.5 5.6 17M12 11.5l6.4 5.5"></path>
+</svg>
+<h3>Systems engineering</h3>
+<p>Defining architecture, decomposing functions and steering the project coherently from concept to integration.
+            </p>
+</li>
+<li class="card" data-delay="2" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="M7 3.5h6.5L18 8v12.5H7z"></path>
+<path d="M13.5 3.5V8H18"></path>
+<path d="m9.8 12.6 1.5 1.5 3-3"></path>
+<path d="M9.8 17.3h5"></path>
+</svg>
+<h3>Requirements analysis and management</h3>
+<p>Specification, structuring and full traceability of requirements across the entire system lifecycle.</p>
+</li>
+<li class="card" data-delay="3" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<rect height="6" rx="1" width="7.5" x="3" y="4.5"></rect>
+<rect height="6" rx="1" width="7.5" x="13.5" y="13.5"></rect>
+<path d="M10.5 7.5h4.5v6"></path>
+<path d="m13 11.5 2 2 2-2"></path>
+</svg>
+<h3>Model-Based Design</h3>
+<p>Development based on executable models — from concept, through simulation, to code generation.</p>
+</li>
+<li class="card" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="M2.5 13.5H6l2.5-7 4.5 12 2.5-7h6"></path>
+</svg>
+<h3>Modelling and simulation</h3>
+<p>Models of dynamics, algorithms and the system environment, allowing behaviour to be tested before implementation.</p>
+</li>
+<li class="card" data-delay="2" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<rect height="10" rx="1.5" width="10" x="7" y="7"></rect>
+<rect height="3" width="3" x="10.5" y="10.5"></rect>
+<path d="M9.5 7V4m5 3V4m-5 16v-3m5 3v-3M7 9.5H4m3 5H4m16-5h-3m3 5h-3"></path>
+</svg>
+<h3>Embedded systems development</h3>
+<p>Embedded software for real-time platforms, with the emphasis on determinism and reliability.</p>
+</li>
+<li class="card" data-delay="3" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="m3 13 4 4 7.5-8.5"></path>
+<path d="m11.5 13.5 3.5 3.5L21 9.5"></path>
+</svg>
+<h3>Verification and validation</h3>
+<p>Systematically demonstrating that the system meets its requirements — at model, code and system level.</p>
+</li>
+<li class="card" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="M20 12a8 8 0 1 1-2.3-5.6"></path>
+<path d="M20 3.5V8h-4.5"></path>
+<path d="m9 12.5 2 2 4-4"></path>
+</svg>
+<h3>Test automation</h3>
+<p>Test environments and scripts that shorten regression cycles and make results repeatable.</p>
+</li>
+<li class="card" data-delay="2" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="m12 3 7 3v6c0 4.4-3 7.4-7 9-4-1.6-7-4.6-7-9V6z"></path>
+<path d="m9 12 2 2 4-4"></path>
+</svg>
+<h3>Functional safety</h3>
+<p>Hazard and risk analysis, definition of safety functions and support for activities carried out to IEC 61508 and the required SIL.</p>
+</li>
+<li class="card" data-delay="3" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="M6.5 3.5h7L17.5 8v11.5a1 1 0 0 1-1 1h-9a1 1 0 0 1-1-1V4.5a1 1 0 0 1 1-1z"></path>
+<path d="M13 3.5V8h4.5"></path>
+<path d="M9 12h6M9 15h6M9 18h3.5"></path>
+</svg>
+<h3>Project documentation support</h3>
+<p>Technical and process documentation prepared for reviews, audits and compliance evidence.</p>
+</li>
+<li class="card" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="M8.5 8 4.5 12l4 4"></path>
+<path d="m15.5 8 4 4-4 4"></path>
+<path d="M13.4 6.5 10.6 17.5"></path>
+</svg>
+<h3>Code generation and verification</h3>
+<p>Automatic code generation from models and model-to-code equivalence testing (SIL/PIL) confirming that the implementation matches.</p>
+</li>
+<li class="card" data-delay="2" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="M3.5 20.5h17"></path>
+<path d="M7 20.5v-4.5M12 20.5v-9M17 20.5v-13"></path>
+</svg>
+<h3>Structural coverage analysis</h3>
+<p>Measurement and analysis of structural coverage of both model and code (including MC/DC), supporting evidence of test completeness.</p>
+</li>
+<li class="card" data-delay="3" data-reveal="">
+<svg aria-hidden="true" class="card-icon" viewbox="0 0 24 24">
+<path d="M12 3a6 6 0 0 0-3.5 10.9c.9.7 1.5 1.3 1.5 2.1h4c0-.8.6-1.4 1.5-2.1A6 6 0 0 0 12 3z"></path>
+<path d="M9.5 19h5M10.5 21.5h3"></path>
+</svg>
+<h3>Consulting for R&amp;D teams</h3>
+<p>Advisory work, process reviews and knowledge transfer for teams developing safety-critical systems.</p>
+</li>
+</ul>
+</div>
+</section>
+<!-- ============================== PRZEMYSŁ I SYSTEMY KRYTYCZNE ============================== -->
+<section aria-labelledby="przemysl-h" class="section section--navy" id="przemysl">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="przemysl-h">Industry and safety-critical systems</h2>
+<p class="section-sub">Functional safety rigour for industrial systems and for any solution where reliability matters.</p>
+</header>
+<p class="rail-lead" data-reveal="">
+          IEC 61508 provides the framework for the functional safety of electrical, electronic and programmable systems. We apply its principles in industrial projects and wherever risk and safety evidence must be managed systematically.
+        </p>
+<div class="rail-layout">
+<div class="rail-reqs-wrap" data-reveal="">
+<span class="rail-eyebrow">IEC 61508 rigour</span>
+<ul class="rail-reqs">
+<li><span aria-hidden="true" class="rail-reqs-num">01</span><span class="rail-reqs-text">Safety as the overriding design criterion</span></li>
+<li><span aria-hidden="true" class="rail-reqs-num">02</span><span class="rail-reqs-text">Hazard and risk analysis as the basis for safety functions</span></li>
+<li><span aria-hidden="true" class="rail-reqs-num">03</span><span class="rail-reqs-text">Requirements traceability from specification to test result</span></li>
+<li><span aria-hidden="true" class="rail-reqs-num">04</span><span class="rail-reqs-text">A controlled functional safety lifecycle</span></li>
+<li><span aria-hidden="true" class="rail-reqs-num">05</span><span class="rail-reqs-text">Documentation and evidence ready for independent assessment</span></li>
+<li><span aria-hidden="true" class="rail-reqs-num">06</span><span class="rail-reqs-text">Systematic verification and validation</span></li>
+</ul>
+</div>
+<aside aria-label="Możliwe obszary wsparcia" class="rail-panel" data-delay="2" data-reveal="">
+<span class="rail-eyebrow">Where we can help</span>
+<ul class="rail-chain">
+<li>Automation and control systems</li>
+<li>Industrial machinery and installations</li>
+<li>Protection systems and safety functions</li>
+<li>Embedded software</li>
+<li>PLC controllers with SIL 4 software</li>
+<li>Control algorithms</li>
+<li>System testing and analysis</li>
+</ul>
+</aside>
+</div>
+</div>
+</section>
+<!-- ============================== TECHNOLOGIE ============================== -->
+<section aria-labelledby="technologie-h" class="section section--light" id="technologie">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="technologie-h">Technologies and tools</h2>
+<p class="section-sub">A working environment built around the MathWorks ecosystem and compliance processes.</p>
+</header>
+<ul class="tech-grid">
+<li class="tech-card" data-reveal="">
+<span class="tech-badge">M</span>
+<h3>MATLAB</h3>
+<p>Analysis, algorithms, data processing and automation of engineering tasks - the common language of the whole process.</p>
+</li>
+<li class="tech-card" data-delay="2" data-reveal="">
+<span class="tech-badge">S</span>
+<h3>Simulink</h3>
+<p>Modelling and simulation of dynamic systems and control logic - from concept to a model ready for code generation.</p>
+</li>
+<li class="tech-card" data-delay="3" data-reveal="">
+<span class="tech-badge">IEC</span>
+<h3>IEC Certification Kit</h3>
+<p>Tools and material supporting software development in line with functional safety requirements, including IEC 61508.</p>
+</li>
+<li class="tech-card" data-delay="4" data-reveal="">
+<span class="tech-badge">+</span>
+<h3>Specialist toolboxes</h3>
+<p>Tools supporting requirements analysis, model and code testing, coverage measurement and automated reporting.</p>
+</li>
+</ul>
+<div class="value-block" data-reveal="">
+<h3 class="value-title">What this delivers in a project</h3>
+<ul class="value-grid">
+<li><strong>Earlier defect detection</strong><span>problems caught at model level, not during integration.</span></li>
+<li><strong>Simulation before implementation</strong><span>system behaviour verified before a single line of code exists.</span></li>
+<li><strong>Test automation</strong><span>fast, repeatable test campaigns and regression without manual work.</span></li>
+<li><strong>Repeatable analysis</strong><span>the same inputs always produce the same, auditable result.</span></li>
+<li><strong>Traceability</strong><span>a continuous link between requirements, models, tests and results.</span>
+</li>
+<li><strong>Compliance support</strong><span>documentation and evidence prepared for assessment against project requirements.</span></li>
+</ul>
+</div>
+</div>
+</section>
+<!-- ============================== STANDARDY ============================== -->
+<section aria-labelledby="standardy-h" class="section section--dark" id="standardy">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="standardy-h">IEC 61508 and functional safety</h2>
+<p class="section-sub">Our approach rests on IEC 61508 - the functional safety standard for E/E/PE systems, applied in industry and across a range of safety-critical applications.</p>
+</header>
+<ul class="standards-grid">
+<li class="standard" data-reveal="">
+<span class="standard-code">IEC 61508</span>
+<h3>The basis of functional safety</h3>
+<p>A framework for designing and managing E/E/PE systems that carry out safety functions.</p>
+</li>
+<li class="standard" data-delay="2" data-reveal="">
+<span class="standard-code">IEC 61508-1</span>
+<h3>Safety lifecycle</h3>
+<p>General requirements for managing functional safety across the entire system lifecycle.</p>
+</li>
+<li class="standard" data-delay="3" data-reveal="">
+<span class="standard-code">IEC 61508-2</span>
+<h3>E/E/PE systems</h3>
+<p>Requirements for the design of safety-related electrical, electronic and programmable systems.</p>
+</li>
+<li class="standard" data-reveal="">
+<span class="standard-code">IEC 61508-3</span>
+<h3>Safety-related software</h3>
+<p>Requirements for software development, including specification, implementation, testing and verification.
+            </p>
+</li>
+<li class="standard" data-delay="2" data-reveal="">
+<span class="standard-code">IEC 61508-5</span>
+<h3>Safety integrity levels</h3>
+<p>Methods supporting the determination of SIL levels appropriate to the risk and the required safety functions.
+            </p>
+</li>
+<li class="standard" data-delay="3" data-reveal="">
+<span class="standard-code">CENELEC</span>
+<h3>Sector experience</h3>
+<p>Practice gained in the railway industry strengthens our approach to process rigour, traceability and safety evidence.</p>
+</li>
+</ul>
+<div class="disclaimer" data-reveal="" role="note">
+<p>
+<strong>How we see our role:</strong> KOLSYSTEM is not a certification body. We support clients in preparing the processes, documentation, analyses and evidence required in projects carried out to IEC 61508 and the relevant sector standards - so that the team is ready for reviews, assessment and cooperation with assessment bodies.
+          </p>
+</div>
+</div>
+</section>
+<!-- ============================== PROCES ============================== -->
+<section aria-labelledby="proces-h" class="section section--gray" id="proces">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="proces-h">How we work together</h2>
+</header>
+<ol class="process">
+<li class="process-step" data-reveal="">
+<span class="process-num">1</span>
+<h3>Needs analysis</h3>
+<p>We get to know the project context, its constraints and its goals - both technical and process-related.</p>
+</li>
+<li class="process-step" data-delay="2" data-reveal="">
+<span class="process-num">2</span>
+<h3>Scope definition</h3>
+<p>We agree the scope of work, acceptance criteria, schedule and cooperation model.</p>
+</li>
+<li class="process-step" data-delay="3" data-reveal="">
+<span class="process-num">3</span>
+<h3>Engineering delivery</h3>
+<p>We carry out the work according to the agreed process and report progress regularly.</p>
+</li>
+<li class="process-step" data-delay="4" data-reveal="">
+<span class="process-num">4</span>
+<h3>Verification and testing</h3>
+<p>Results are systematically verified against requirements and quality criteria.</p>
+</li>
+<li class="process-step" data-delay="5" data-reveal="">
+<span class="process-num">5</span>
+<h3>Handover and support</h3>
+<p>We hand over the results together with documentation and provide continued technical support.</p>
+</li>
+</ol>
+</div>
+</section>
+<!-- ============================== OBSZARY PROJEKTOWE ============================== -->
+<section aria-labelledby="obszary-h" class="section section--light" id="obszary">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="obszary-h">Example project areas</h2>
+<p class="section-sub">Typical tasks in which we support teams developing safety-critical systems.</p>
+</header>
+<ul class="areas-list">
+<li class="area" data-reveal="">
+<span aria-hidden="true" class="area-num">01</span>
+<div>
+<h3>Control algorithms and safety logic</h3>
+<p>Design and simulation of control algorithms in Simulink, together with edge-case analysis.</p>
+</div>
+</li>
+<li class="area" data-delay="2" data-reveal="">
+<span aria-hidden="true" class="area-num">02</span>
+<div>
+<h3>MIL / SIL / HIL test environments</h3>
+<p>Building environments for testing the model, the code and system integration against a simulated environment.</p>
+</div>
+</li>
+<li class="area" data-delay="3" data-reveal="">
+<span aria-hidden="true" class="area-num">03</span>
+<div>
+<h3>Code generation from models</h3>
+<p>Preparing models for automatic code generation and verifying model-to-code equivalence.</p>
+</div>
+</li>
+<li class="area" data-reveal="">
+<span aria-hidden="true" class="area-num">04</span>
+<div>
+<h3>Requirements traceability</h3>
+<p>Linking requirements to models, tests and results in a coherent, auditable evidence chain.</p>
+</div>
+</li>
+<li class="area" data-delay="2" data-reveal="">
+<span aria-hidden="true" class="area-num">05</span>
+<div>
+<h3>Analyses for safety evidence</h3>
+<p>Support for the analyses and safety argumentation prepared as part of a safety case.</p>
+</div>
+</li>
+<li class="area" data-delay="3" data-reveal="">
+<span aria-hidden="true" class="area-num">06</span>
+<div>
+<h3>Adopting Model-Based Design</h3>
+<p>Migrating an existing R&amp;D process to model-based work - tools, process and competence.</p>
+</div>
+</li>
+</ul>
+</div>
+</section>
+<!-- ============================== CTA ============================== -->
+<section aria-label="Invitation to work together" class="cta-band">
+<div class="container cta-band-inner" data-reveal="">
+<div class="cta-band-copy">
+<h2 class="cta-band-title">Do you have an industrial project where safety matters?</h2>
+<p class="cta-band-text">Describe the scope briefly - we will come back with a concrete, engineering answer.</p>
+</div>
+<a class="btn cta-band-btn" href="#kontakt">Talk to an engineer</a>
+</div>
+</section>
+<!-- ============================== KONTAKT ============================== -->
+<section aria-labelledby="kontakt-h" class="section section--dark" id="kontakt">
+<div class="container">
+<header class="section-head" data-reveal="">
+<h2 id="kontakt-h">Contact</h2>
+<p class="section-sub">Tell us about your project - we answer like engineers, to the point.</p>
+</header>
+<div class="contact-grid">
+<div class="contact-info" data-reveal="">
+<h3>Contact details</h3>
+<ul class="contact-list">
+<li>
+<span class="contact-label">Address</span>
+<address>KOLSYSTEM Sp. z o.o.<br/>ul. Uniwersytecka 13<br/>40-007 Katowice, Poland</address>
+</li>
+<li>
+<span class="contact-label">Email</span>
+<a href="mailto:biuro@kolsystem.pl">biuro@kolsystem.pl</a>
+</li>
+<li>
+<span class="contact-label">Phone</span>
+<a href="tel:+48600580325">+48 600 580 325</a>
+</li>
+</ul>
+<h3 class="contact-reg-title">Registration details</h3>
+<dl class="reg-list">
+<div>
+<dt>NIP (tax ID)</dt>
+<dd>954-278-16-88</dd>
+</div>
+<div>
+<dt>REGON</dt>
+<dd>368149910</dd>
+</div>
+<div>
+<dt>KRS</dt>
+<dd>0000693250</dd>
+</div>
+</dl>
+</div>
+<form class="contact-form" data-delay="2" data-reveal="" id="contact-form" novalidate="">
+<div class="form-row">
+<div class="form-field">
+<label for="f-name">Full name <span aria-hidden="true" class="req">*</span></label>
+<input autocomplete="name" id="f-name" name="name" required="" type="text"/>
+<p class="field-error" hidden="" id="err-name"></p>
+</div>
+<div class="form-field">
+<label for="f-company">Company</label>
+<input autocomplete="organization" id="f-company" name="company" type="text"/>
+<p class="field-error" hidden="" id="err-company"></p>
+</div>
+</div>
+<div class="form-row">
+<div class="form-field">
+<label for="f-email">Email address <span aria-hidden="true" class="req">*</span></label>
+<input autocomplete="email" id="f-email" name="email" required="" type="email"/>
+<p class="field-error" hidden="" id="err-email"></p>
+</div>
+<div class="form-field">
+<label for="f-phone">Phone number</label>
+<input autocomplete="tel" id="f-phone" name="phone" type="tel"/>
+<p class="field-error" hidden="" id="err-phone"></p>
+</div>
+</div>
+<div class="form-field">
+<label for="f-message">Message <span aria-hidden="true" class="req">*</span></label>
+<textarea id="f-message" name="message" required="" rows="6"></textarea>
+<p class="field-error" hidden="" id="err-message"></p>
+</div>
+<div class="form-field form-consent">
+<label class="consent-label">
+<input id="f-consent" name="consent" required="" type="checkbox"/>
+<span>I consent to the processing of my personal data by KOLSYSTEM Sp. z o.o. for the purpose of responding to the enquiry I have sent. <span aria-hidden="true" class="req">*</span></span>
+</label>
+<p class="field-error" hidden="" id="err-consent"></p>
+</div>
+<noscript>
+<p class="form-legal">Submitting the form requires JavaScript. If it is disabled, write to us directly at
+                <a href="mailto:biuro@kolsystem.pl">biuro@kolsystem.pl</a>
+                or call: <a href="tel:+48600580325">+48 600 580 325</a>.
+              </p>
+</noscript>
+<button class="btn btn-primary btn-submit" type="submit">Send message</button>
+<p class="form-success" hidden="" id="form-success" role="status">
+              Thank you. Your message has been prepared - we have opened your email client with the content ready. If the window did not appear, write to us directly at
+              <a href="mailto:biuro@kolsystem.pl">biuro@kolsystem.pl</a>.
+            </p>
+<!-- Klauzula informacyjna (art. 13 RODO) -->
+<p class="form-legal">
+              The controller of the personal data provided in the form is KOLSYSTEM Sp. z o.o., ul. Uniwersytecka 13, 40-007 Katowice, Poland. The data is processed solely in order to respond to the enquiry sent, on the basis of consent (Art. 6(1)(a) GDPR), for the period necessary to handle the correspondence. Providing the data is voluntary but necessary in order to receive a reply. You have the right to access your data, rectify it, erase it, restrict its processing, withdraw consent at any time and lodge a complaint with the President of the Personal Data Protection Office (UODO). Contact for personal data matters:
+              <a href="mailto:biuro@kolsystem.pl">biuro@kolsystem.pl</a>. The site stores only the necessary cookie holding your consent choice; once you consent to external content, the Google map is loaded - the data recipient (including your IP address) is then Google Ireland Ltd. Full information is available in the <a href="privacy-policy.html">privacy policy</a>.
+            </p>
+</form>
+</div>
+<!-- Mapa dojazdu (Google Maps, ładowana po zgodzie na treści zewnętrzne) -->
+<div class="map-block" data-reveal="">
+<h3 class="map-title">Location</h3>
+<div class="map-embed" data-src="https://maps.google.com/maps?q=ul.%20Uniwersytecka%2013%2C%2040-007%20Katowice&amp;z=16&amp;hl=pl&amp;output=embed" id="map-embed">
+<div class="map-placeholder">
+<svg aria-hidden="true" class="map-pin" focusable="false" viewbox="0 0 24 24">
+<path d="M12 21s-7-5.75-7-11a7 7 0 1 1 14 0c0 5.25-7 11-7 11z"></path>
+<circle cx="12" cy="10" r="2.5"></circle>
+</svg>
+<p>
+                KOLSYSTEM Sp. z o.o. · ul. Uniwersytecka 13 · 40-007 Katowice, Poland<br/>
+                The Google map will be displayed once you consent to external content. Loading the map involves transferring data (including your IP address) to Google.
+              </p>
+<button class="btn btn-primary btn-sm" id="map-load-btn" type="button">Load Google map</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- ============================== STOPKA ============================== -->
+<footer class="site-footer">
+<div class="container footer-grid">
+<div class="footer-brand">
+<a aria-label="KOLSYSTEM – top of page" class="logo" href="#top">
+<img alt="" class="logo-image" height="760" src="../assets/brand/logo-horizontal-primary.svg" width="4510"/>
+</a>
+<p>Safety-critical systems engineering, IEC 61508 functional safety and Model-Based Design.</p>
+</div>
+<div class="footer-col">
+<h3>Company details</h3>
+<p>
+          KOLSYSTEM Sp. z o.o.<br/>
+          ul. Uniwersytecka 13<br/>
+          40-007 Katowice, Poland
+        </p>
+<p>
+          NIP: 954-278-16-88<br/>
+          REGON: 368149910<br/>
+          KRS: 0000693250
+        </p>
+</div>
+<div class="footer-col">
+<h3>Contact</h3>
+<p>
+<a href="mailto:biuro@kolsystem.pl">biuro@kolsystem.pl</a><br/>
+<a href="tel:+48600580325">+48 600 580 325</a>
+</p>
+<h3>Quick links</h3>
+<ul class="footer-nav">
+<li><a href="#uslugi">Services</a></li>
+<li><a href="#standardy">Standards</a></li>
+<li><a href="#kontakt">Contact</a></li>
+<li><a href="privacy-policy.html">Privacy policy</a></li>
+<li><button class="link-btn" id="cookie-settings" type="button">Cookie settings</button></li>
+</ul>
+</div>
+</div>
+<div class="container footer-bottom">
+<p>© <span id="year">2026</span> KOLSYSTEM Sp. z o.o. All rights reserved.</p>
+</div>
+</footer>
+<!-- Baner zgody na cookies i treści zewnętrzne -->
+<div aria-label="Cookie and external content settings" class="cookie-banner" hidden="" id="cookie-banner" role="region">
+<div class="cookie-inner">
+<p class="cookie-text">
+<strong>Cookies and external content.</strong>
+        We use a necessary cookie that stores your choice. With your consent we load the Google map (which passes on your IP address). <a href="privacy-policy.html">Details in the privacy policy</a>.
+      </p>
+<div class="cookie-actions">
+<button class="btn btn-primary btn-sm" id="cookie-accept" type="button">Accept all</button>
+<button class="btn btn-ghost btn-sm" id="cookie-necessary" type="button">Necessary only</button>
+</div>
+</div>
+</div>
+<button aria-label="Back to top" class="to-top" id="to-top" type="button">
+<svg aria-hidden="true" focusable="false" viewbox="0 0 24 24">
+<path d="M12 19V5m-6 6 6-6 6 6" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
+</svg>
+</button>
+<script defer="" src="../assets/js/script.js"></script>
+</body>
+</html>

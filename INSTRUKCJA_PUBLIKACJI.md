@@ -10,13 +10,14 @@ Do katalogu strony `/kolsystem.pl/kolsystem_pl/` trafią:
 ```text
 .htaccess
 assets/
+en/
 index.html
 polityka-prywatnosci.html
 robots.txt
 sitemap.xml
 ```
 
-Nie wgrywaj pliku `README.md` ani tej instrukcji. Plik `.htaccess` zachowuje
+Nie wgrywaj katalogów `brand/`, `i18n/` i `tools/` ani plików `README.md` i tej instrukcji - to źródła i narzędzia, nie treść serwisu. Katalog `en/` jest generowany (`python tools/build_i18n.py`), ale na serwer trafia. Plik `.htaccess` zachowuje
 przekierowanie `www.kolsystem.pl` na `kolsystem.pl` oraz adresy starej strony:
 
 - `https://kolsystem.pl/o-nas/` → sekcja „O firmie”;
@@ -164,6 +165,7 @@ Zacznij ten krok dopiero, gdy lokalna kopia plików i eksport bazy są kompletne
    ```text
    .htaccess
    assets/
+   en/
    index.html
    polityka-prywatnosci.html
    robots.txt
@@ -203,6 +205,8 @@ Otwórz poniższe adresy w prywatnym oknie przeglądarki:
 | `https://kolsystem.pl/polityka-prywatnosci.html` | polityka prywatności |
 | `https://kolsystem.pl/robots.txt` | plik robots.txt |
 | `https://kolsystem.pl/sitemap.xml` | mapa strony XML |
+| `https://kolsystem.pl/en/` | angielska wersja strony |
+| `https://kolsystem.pl/en/privacy-policy.html` | angielska polityka prywatności |
 
 Dodatkowo sprawdź:
 
@@ -212,6 +216,7 @@ Dodatkowo sprawdź:
    powinno otworzyć program pocztowy.
 4. Baner cookies oraz ręczne wczytanie mapy po wyrażeniu zgody.
 5. Certyfikat kłódki przy adresie strony.
+6. Przełącznik PL/EN w nagłówku - w obie strony, na komputerze i telefonie.
 
 ## 8. Po publikacji
 

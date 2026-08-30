@@ -14,6 +14,42 @@
   var prefersReducedMotion =
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Język interfejsu ---------- */
+  /* Komunikaty skryptu idą za atrybutem lang dokumentu, więc ten sam plik
+     obsługuje wersję polską i angielską. Nieznany język wraca do polskiego. */
+
+  var STRINGS = {
+    pl: {
+      name: 'Podaj imię i nazwisko.',
+      emailEmpty: 'Podaj adres e-mail.',
+      emailBad: 'Podaj poprawny adres e-mail.',
+      phoneBad: 'Podaj poprawny numer telefonu.',
+      message: 'Wpisz treść wiadomości (min. 10 znaków).',
+      consent: 'Zgoda jest wymagana do wysłania formularza.',
+      subject: 'Zapytanie ze strony kolsystem.pl - ',
+      lName: 'Imię i nazwisko: ',
+      lCompany: 'Firma: ',
+      lEmail: 'E-mail: ',
+      lPhone: 'Telefon: '
+    },
+    en: {
+      name: 'Please enter your full name.',
+      emailEmpty: 'Please enter your email address.',
+      emailBad: 'Please enter a valid email address.',
+      phoneBad: 'Please enter a valid phone number.',
+      message: 'Please enter your message (at least 10 characters).',
+      consent: 'Consent is required to submit the form.',
+      subject: 'Enquiry from kolsystem.pl - ',
+      lName: 'Full name: ',
+      lCompany: 'Company: ',
+      lEmail: 'Email: ',
+      lPhone: 'Phone: '
+    }
+  };
+
+  var T = STRINGS[(document.documentElement.lang || 'pl').slice(0, 2).toLowerCase()]
+    || STRINGS.pl;
+
   /* ---------- Bezpiecznik: treść nigdy nie zostaje ukryta ---------- */
   /* Elementy [data-reveal] ukrywa CSS wyłącznie przy obecnej klasie .js.
      Gdyby inicjalizacja przerwała się wyjątkiem, poniższe zabezpieczenia
@@ -305,7 +341,7 @@
         input: document.getElementById('f-name'),
         error: document.getElementById('err-name'),
         validate: function (value) {
-          if (value.trim().length < 3) return 'Podaj imię i nazwisko.';
+          if (value.trim().length < 3) return T.name;
           return '';
         }
       },
@@ -318,9 +354,9 @@
         input: document.getElementById('f-email'),
         error: document.getElementById('err-email'),
         validate: function (value) {
-          if (!value.trim()) return 'Podaj adres e-mail.';
+          if (!value.trim()) return T.emailEmpty;
           if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(value.trim())) {
-            return 'Podaj poprawny adres e-mail.';
+            return T.emailBad;
           }
           return '';
         }
@@ -331,7 +367,7 @@
         validate: function (value) {
           if (!value.trim()) return ''; /* pole opcjonalne */
           if (!/^[+]?[\d\s\-()]{7,}$/.test(value.trim())) {
-            return 'Podaj poprawny numer telefonu.';
+            return T.phoneBad;
           }
           return '';
         }
@@ -341,7 +377,7 @@
         error: document.getElementById('err-message'),
         validate: function (value) {
           if (value.trim().length < 10) {
-            return 'Wpisz treść wiadomości (min. 10 znaków).';
+            return T.message;
           }
           return '';
         }
@@ -350,7 +386,7 @@
         input: document.getElementById('f-consent'),
         error: document.getElementById('err-consent'),
         validate: function (_value, input) {
-          if (!input.checked) return 'Zgoda jest wymagana do wysłania formularza.';
+          if (!input.checked) return T.consent;
           return '';
         }
       }
@@ -413,14 +449,14 @@
       var phone = fields.phone.input.value.trim();
       var message = fields.message.input.value.trim();
 
-      var subject = 'Zapytanie ze strony kolsystem.pl - ' +
+      var subject = T.subject +
         (company ? name + ' (' + company + ')' : name);
 
       var body =
-        'Imię i nazwisko: ' + name + '\n' +
-        (company ? 'Firma: ' + company + '\n' : '') +
-        'E-mail: ' + email + '\n' +
-        (phone ? 'Telefon: ' + phone + '\n' : '') +
+        T.lName + name + '\n' +
+        (company ? T.lCompany + company + '\n' : '') +
+        T.lEmail + email + '\n' +
+        (phone ? T.lPhone + phone + '\n' : '') +
         '\n' + message;
 
       window.location.href =
