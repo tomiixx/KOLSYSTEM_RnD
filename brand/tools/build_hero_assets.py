@@ -178,21 +178,31 @@ def diagram_group(mono: VectorFont, tx: float, ty: float, scale: float) -> str:
 # Sygnet i lockup (przeniesione z plików logo, jako krzywe)
 # ---------------------------------------------------------------------------
 def symbol_tile(tx: float, ty: float, size: float) -> str:
-    """Żółty kafel sygnetu (majoryzator 2oo3) - jak w lockupie na ciemne tło."""
+    """Żółty kafel sygnetu (majoryzator 2oo3) - jak w lockupie na ciemne tło.
+
+    Geometria zgodna z brand/logos/svg/kolsystem-lockup-primary.svg
+    (ścieżki prowadzone pod kątem prostym, majoryzator r=90.11).
+    """
     s = size / 512.0
+    marks = (
+        '<rect x="113.83" y="108.97" width="114.77" height="20.65"/>'
+        '<rect x="207.96" y="108.97" width="20.65" height="88.91"/>'
+        '<rect x="207.96" y="177.24" width="142.04" height="20.65"/>'
+        '<rect x="113.83" y="245.68" width="236.17" height="20.65"/>'
+        '<rect x="113.83" y="382.38" width="114.77" height="20.65"/>'
+        '<rect x="207.96" y="314.12" width="20.65" height="88.91"/>'
+        '<rect x="207.96" y="314.12" width="142.04" height="20.65"/>'
+        '<circle cx="113.83" cy="119.3" r="33.96"/>'
+        '<circle cx="113.83" cy="256" r="33.96"/>'
+        '<circle cx="113.83" cy="392.7" r="33.96"/>'
+    )
     return (
         f'<g transform="translate({tx:.2f} {ty:.2f}) scale({s:.6f})">'
         f'<rect width="512" height="512" rx="116" fill="{YELLOW}"/>'
-        f'<g stroke="{GRAPHITE_INK}" stroke-width="24" stroke-linecap="round">'
-        f'<line x1="146" y1="150" x2="352" y2="256"/>'
-        f'<line x1="146" y1="256" x2="352" y2="256"/>'
-        f'<line x1="146" y1="362" x2="352" y2="256"/></g>'
-        f'<g fill="{GRAPHITE_INK}">'
-        f'<circle cx="146" cy="150" r="34"/><circle cx="146" cy="256" r="34"/>'
-        f'<circle cx="146" cy="362" r="34"/></g>'
-        f'<circle cx="352" cy="256" r="66" fill="{GRAPHITE_INK}"/>'
-        f'<path d="M322 260 345 284 388 230" fill="none" stroke="{YELLOW}" '
-        f'stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/></g>'
+        f'<g fill="{GRAPHITE_INK}">{marks}</g>'
+        f'<circle cx="380.25" cy="256" r="90.11" fill="{GRAPHITE_INK}"/>'
+        f'<path d="M339.29 261.46 370.69 294.23 429.4 220.5" fill="none" stroke="{YELLOW}" '
+        f'stroke-width="19.97" stroke-linecap="round" stroke-linejoin="round"/></g>'
     )
 
 

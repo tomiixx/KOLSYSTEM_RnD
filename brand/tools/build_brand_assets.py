@@ -16,6 +16,7 @@ from fontTools.ttLib import TTFont as FontToolsFont
 from PIL import Image, ImageDraw, ImageFilter, ImageFont
 from pypdf import PdfReader, PdfWriter
 from pypdf.generic import DecodedStreamObject, NameObject
+import segno
 from reportlab.graphics import renderPDF
 from reportlab.lib.colors import CMYKColor, HexColor
 from reportlab.lib.pagesizes import A4
@@ -46,6 +47,9 @@ OFF_WHITE = HexColor("#f5f7fa")
 GRAY_200 = HexColor("#e6eaee")
 MUTED_DARK = HexColor("#5b6672")
 MUTED_LIGHT = HexColor("#9aa5b1")
+
+BRAND_VERSION = "WERSJA 1.1"
+BRAND_DATE = "SIERPIEŃ 2026"
 
 CMYK_GRAPHITE = CMYKColor(0.32, 0.17, 0, 0.89)
 CMYK_ANTHRACITE = CMYKColor(0.34, 0.20, 0, 0.84)
@@ -265,75 +269,154 @@ def draw_svg_on_canvas(
     return drawing.height
 
 
-def _card_front(pdf: canvas.Canvas) -> None:
-    page_width, page_height = 96 * mm, 56 * mm
-    pdf.setFillColor(CMYK_GRAPHITE)
-    pdf.rect(0, 0, page_width, page_height, stroke=0, fill=1)
-    pdf.setStrokeColor(CMYK_ANTHRACITE)
-    pdf.setLineWidth(0.12 * mm)
-    for x in range(0, 97, 5):
-        pdf.line(x * mm, 0, x * mm, page_height)
-    for y in range(0, 57, 5):
-        pdf.line(0, y * mm, page_width, y * mm)
-    pdf.setFillColor(CMYK_YELLOW)
-    pdf.rect(0, 0, 2.4 * mm, page_height, stroke=0, fill=1)
+QR_TARGET = "https://kolsystem.pl/"
 
-    draw_svg_on_canvas(
-        pdf,
-        SVG_LOGOS / "kolsystem-lockup-primary.svg",
-        9 * mm,
-        28 * mm,
-        65 * mm,
-        cmyk=True,
-    )
-    pdf.rect(9 * mm, 22.5 * mm, 34 * mm, 0.8 * mm, stroke=0, fill=1)
+
+def _draw_qr(pdf: canvas.Canvas, data: str, x: float, y: float, size: float,
+             border: int = 2) -> None:
+    """Rysuje kod QR jako wektor - moduł po module, w kolorach CMYK.
+
+    Nie przechodzi przez SVG: reportlab dostaje gotowe prostokąty, więc kod
+    zostaje ostry przy dowolnej rozdzielczości naświetlarki.
+    """
+    qr = segno.make(data, error="m")
+    matrix = [list(row) for row in qr.matrix]
+    modules = len(matrix)
+    step = size / (modules + 2 * border)
+
+    # strefa cicha - biały kwadrat pod całym kodem
     pdf.setFillColor(CMYK_WHITE)
-    pdf.setFont("Chakra-SemiBold", 11.4)
-    pdf.drawString(9 * mm, 16.8 * mm, "INŻYNIERIA SYSTEMÓW KRYTYCZNYCH")
+    pdf.rect(x, y, size, size, stroke=0, fill=1)
+
+    pdf.setFillColor(CMYK_GRAPHITE)
+    for r, row in enumerate(matrix):
+        for c, dark in enumerate(row):
+            if dark:
+                # reportlab liczy y od dołu, macierz QR od góry
+                pdf.rect(x + (c + border) * step,
+                         y + size - (r + border + 1) * step,
+                         step, step, stroke=0, fill=1)
+
+
+# --- siatka wizytówki -------------------------------------------------------
+# Wszystkie wymiary liczone od LINII CIĘCIA, nie od krawędzi arkusza. Strona ma
+# 96 x 56 mm, gotowa karta 90 x 50 mm, więc spad 3 mm z każdej strony zostaje
+# odcięty. Element wpadający w spad po prostu znika z wydruku.
+CARD_PAGE_W, CARD_PAGE_H = 96.0, 56.0
+CARD_BLEED = 3.0
+CARD_BAR = 4.0                      # widoczna szerokość żółtego paska
+CARD_BAR_X1 = CARD_BLEED + CARD_BAR  # 7 mm - prawa krawędź paska na arkuszu
+CARD_L = 12.0                       # lewa krawędź treści
+CARD_R = 84.0                       # prawa krawędź treści
+CARD_RULE_W, CARD_RULE_H = 30.0, 0.7
+
+
+def _fit_size(pdf: canvas.Canvas, text: str, font: str, start: float,
+              max_width: float) -> float:
+    """Największy stopień pisma, przy którym tekst mieści się w kolumnie."""
+    size = start
+    while size > 4 and pdf.stringWidth(text, font, size) > max_width * mm:
+        size -= 0.1
+    return round(size, 1)
+
+
+def _card_grid(pdf: canvas.Canvas) -> None:
+    """Siatka inżynieryjna wyrównana do linii cięcia, przeciągnięta w spad."""
+    pdf.setStrokeColor(CMYK_ANTHRACITE)
+    pdf.setLineWidth(0.1 * mm)
+    step = 5.0
+    x = CARD_BLEED - step * 2
+    while x <= CARD_PAGE_W:
+        if x >= 0:
+            pdf.line(x * mm, 0, x * mm, CARD_PAGE_H * mm)
+        x += step
+    y = CARD_BLEED - step * 2
+    while y <= CARD_PAGE_H:
+        if y >= 0:
+            pdf.line(0, y * mm, CARD_PAGE_W * mm, y * mm)
+        y += step
+
+
+def _card_bar(pdf: canvas.Canvas) -> None:
+    """Żółty pasek: od krawędzi arkusza, żeby po przycięciu miał równe 4 mm."""
+    pdf.setFillColor(CMYK_YELLOW)
+    pdf.rect(0, 0, CARD_BAR_X1 * mm, CARD_PAGE_H * mm, stroke=0, fill=1)
+
+
+def _card_front(pdf: canvas.Canvas) -> None:
+    pdf.setFillColor(CMYK_GRAPHITE)
+    pdf.rect(0, 0, CARD_PAGE_W * mm, CARD_PAGE_H * mm, stroke=0, fill=1)
+    _card_grid(pdf)
+    _card_bar(pdf)
+
+    column = CARD_R - CARD_L        # 72 mm
+
+    logo_w = 56.0
+    draw_svg_on_canvas(pdf, SVG_LOGOS / "kolsystem-lockup-primary.svg",
+                       CARD_L * mm, 31.5 * mm, logo_w * mm, cmyk=True)
+
+    pdf.setFillColor(CMYK_YELLOW)
+    pdf.rect(CARD_L * mm, 27 * mm, CARD_RULE_W * mm, CARD_RULE_H * mm,
+             stroke=0, fill=1)
+
+    headline = "INŻYNIERIA SYSTEMÓW KRYTYCZNYCH"
+    pdf.setFillColor(CMYK_WHITE)
+    pdf.setFont("Chakra-SemiBold", _fit_size(pdf, headline, "Chakra-SemiBold", 11.4, column))
+    pdf.drawString(CARD_L * mm, 20.5 * mm, headline)
+
+    subline = "MODEL-BASED DESIGN  ·  IEC 61508  ·  V&V"
     pdf.setFillColor(CMYK_MUTED)
-    pdf.setFont("JetBrains-Medium", 6.4)
-    pdf.drawString(9 * mm, 11.8 * mm, "MODEL-BASED DESIGN  ·  CENELEC  ·  V&V")
+    pdf.setFont("JetBrains-Medium", _fit_size(pdf, subline, "JetBrains-Medium", 6.2, column))
+    pdf.drawString(CARD_L * mm, 15 * mm, subline)
 
 
 def _card_back(pdf: canvas.Canvas) -> None:
-    page_width, page_height = 96 * mm, 56 * mm
     pdf.setFillColor(CMYK_WHITE)
-    pdf.rect(0, 0, page_width, page_height, stroke=0, fill=1)
-    pdf.setFillColor(CMYK_YELLOW)
-    pdf.rect(0, 0, 6 * mm, page_height, stroke=0, fill=1)
+    pdf.rect(0, 0, CARD_PAGE_W * mm, CARD_PAGE_H * mm, stroke=0, fill=1)
+    _card_bar(pdf)
 
+    qr_size, sym_size = 19.0, 12.0
+    # prawa kolumna dostaje ten sam zakres pionowy co lewa: górna krawędź
+    # sygnetu na wysokości wersalika nazwy firmy, dolna krawędź kodu QR
+    # na linii bazowej adresu
+    name_cap_top = 41 + 12 * 0.72 * 25.4 / 72      # wersalik Chakra-Bold 12 pt
+    sym_y = name_cap_top - sym_size
+    qr_y = 9.5
+    text_column = (CARD_R - qr_size) - 4 - CARD_L   # do lewej krawędzi kodu QR
+
+    name = "KOLSYSTEM Sp. z o.o."
     pdf.setFillColor(CMYK_GRAPHITE)
-    pdf.setFont("Chakra-Bold", 13)
-    pdf.drawString(11 * mm, 43 * mm, "KOLSYSTEM Sp. z o.o.")
-    pdf.setFillColor(CMYK_MUTED)
-    pdf.setFont("Titillium-SemiBold", 8)
-    pdf.drawString(11 * mm, 38 * mm, "Inżynieria systemów krytycznych")
-    pdf.setFillColor(CMYK_YELLOW)
-    pdf.rect(11 * mm, 34 * mm, 43 * mm, 0.6 * mm, stroke=0, fill=1)
+    pdf.setFont("Chakra-Bold", _fit_size(pdf, name, "Chakra-Bold", 12, text_column))
+    pdf.drawString(CARD_L * mm, 41 * mm, name)
 
-    contacts = (
-        (27.5, "biuro@kolsystem.pl"),
-        (21.5, "+48 600 580 325"),
-        (15.5, "kolsystem.pl"),
-    )
-    pdf.setFont("JetBrains-Regular", 7.5)
+    tagline = "Inżynieria systemów krytycznych"
+    pdf.setFillColor(CMYK_MUTED)
+    pdf.setFont("Titillium-SemiBold", _fit_size(pdf, tagline, "Titillium-SemiBold", 7.5, text_column))
+    pdf.drawString(CARD_L * mm, 36.3 * mm, tagline)
+
+    pdf.setFillColor(CMYK_YELLOW)
+    pdf.rect(CARD_L * mm, 33 * mm, CARD_RULE_W * mm, CARD_RULE_H * mm,
+             stroke=0, fill=1)
+
+    contacts = ((26.5, "biuro@kolsystem.pl"), (21.0, "+48 600 580 325"),
+                (15.5, "kolsystem.pl"))
+    pdf.setFont("JetBrains-Regular", 7.2)
     for y, value in contacts:
         pdf.setFillColor(CMYK_YELLOW)
-        pdf.rect(11 * mm, (y - 0.4) * mm, 1.5 * mm, 1.5 * mm, stroke=0, fill=1)
+        pdf.rect(CARD_L * mm, (y - 0.35) * mm, 1.5 * mm, 1.5 * mm, stroke=0, fill=1)
         pdf.setFillColor(CMYK_GRAPHITE)
-        pdf.drawString(15 * mm, y * mm, value)
+        pdf.drawString((CARD_L + 4.2) * mm, y * mm, value)
 
+    address = "ul. Uniwersytecka 13  ·  40-007 Katowice"
     pdf.setFillColor(CMYK_MUTED)
-    pdf.setFont("Titillium-Regular", 6.7)
-    pdf.drawString(11 * mm, 7.8 * mm, "ul. Radockiego 76/8  ·  40-645 Katowice")
-    draw_svg_on_canvas(
-        pdf,
-        SVG_LOGOS / "kolsystem-symbol-on-yellow.svg",
-        70 * mm,
-        18 * mm,
-        20 * mm,
-        cmyk=True,
-    )
+    pdf.setFont("Titillium-Regular", _fit_size(pdf, address, "Titillium-Regular", 6.2, text_column))
+    pdf.drawString(CARD_L * mm, 9.5 * mm, address)
+
+    # prawa kolumna: sygnet u góry, kod QR pod nim - obie rzeczy wyrównane
+    # do prawej krawędzi treści
+    draw_svg_on_canvas(pdf, SVG_LOGOS / "kolsystem-symbol-on-yellow.svg",
+                       (CARD_R - sym_size) * mm, sym_y * mm, sym_size * mm, cmyk=True)
+    _draw_qr(pdf, QR_TARGET, (CARD_R - qr_size) * mm, qr_y * mm, qr_size * mm)
 
 
 def build_business_card() -> Path:
@@ -382,11 +465,37 @@ def build_business_card() -> Path:
     return output
 
 
+def build_card_sources(pdf_path: Path) -> list[Path]:
+    """Eksportuje obie strony wizytówki do SVG wprost z gotowego PDF-a.
+
+    Wcześniej w `source/` leżały ręcznie utrzymywane kopie układu i regularnie
+    rozjeżdżały się z rzeczywistą wizytówką (stary sygnet, stary adres, stare
+    hasło). Jedynym źródłem prawdy jest kod w tym pliku; SVG są z niego
+    wyprowadzane, więc rozjazd jest niemożliwy. Tekst idzie jako krzywe, dzięki
+    czemu pliki nie zależą od zainstalowanych fontów.
+    """
+    document = fitz.open(pdf_path)
+    names = ("kolsystem-business-card-front.svg", "kolsystem-business-card-back.svg")
+    written: list[Path] = []
+    for page, name in zip(document, names):
+        target = BUSINESS_CARD / "source" / name
+        target.write_text(page.get_svg_image(text_as_path=True), encoding="utf-8")
+        written.append(target)
+        print(f"ok {target.relative_to(ROOT)}")
+    document.close()
+    return written
+
+
 def build_business_card_preview(pdf_path: Path) -> Path:
     document = fitz.open(pdf_path)
     cards: list[Image.Image] = []
     for page in document:
-        pixmap = page.get_pixmap(matrix=fitz.Matrix(3.2, 3.2), alpha=False)
+        # Podgląd pokazuje kartę PO PRZYCIĘCIU (TrimBox), a nie arkusz ze spadem.
+        # Inaczej ocenia się kompozycję, której drukarnia i tak nie dostarczy.
+        r = page.rect
+        inset = CARD_BLEED * mm
+        clip = fitz.Rect(r.x0 + inset, r.y0 + inset, r.x1 - inset, r.y1 - inset)
+        pixmap = page.get_pixmap(matrix=fitz.Matrix(3.2, 3.2), alpha=False, clip=clip)
         cards.append(Image.frombytes("RGB", (pixmap.width, pixmap.height), pixmap.samples))
     document.close()
 
@@ -463,7 +572,7 @@ def guide_header(pdf: canvas.Canvas, number: int, title: str, total: int) -> Non
     pdf.line(18 * mm, 18 * mm, page_width - 18 * mm, 18 * mm)
     pdf.setFillColor(MUTED_DARK)
     pdf.setFont("JetBrains-Regular", 6.5)
-    pdf.drawString(18 * mm, 11 * mm, "KOLSYSTEM Sp. z o.o.  ·  WERSJA 1.0  ·  LIPIEC 2026")
+    pdf.drawString(18 * mm, 11 * mm, f"KOLSYSTEM Sp. z o.o.  ·  {BRAND_VERSION}  ·  {BRAND_DATE}")
     pdf.drawRightString(page_width - 18 * mm, 11 * mm, f"{number}/{total}")
 
 
@@ -507,7 +616,7 @@ def build_guidelines_pdf(social_png: Path, card_preview: Path) -> Path:
     pdf.drawString(25 * mm, page_height - 140 * mm, "Zasady identyfikacji wizualnej i produkcji materiałów")
     pdf.setFillColor(OFF_WHITE)
     pdf.setFont("JetBrains-SemiBold", 8)
-    pdf.drawString(25 * mm, 28 * mm, "WERSJA 1.0  /  LIPIEC 2026")
+    pdf.drawString(25 * mm, 28 * mm, f"{BRAND_VERSION}  /  {BRAND_DATE}")
     pdf.showPage()
 
     # 2. Fundament marki
@@ -824,6 +933,7 @@ def main() -> None:
     build_logo_exports()
     build_digital_exports()
     card_pdf = build_business_card()
+    build_card_sources(card_pdf)
     card_preview = build_business_card_preview(card_pdf)
     guidelines_pdf = build_guidelines_pdf(
         DIGITAL_SOCIAL / "kolsystem-social-share-1200x630.png",
