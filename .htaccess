@@ -1,0 +1,16 @@
+# KOLSYSTEM — przekierowania po migracji z WordPressa do strony statycznej.
+# Wgrywaj ten plik do głównego katalogu domeny kolsystem.pl.
+
+RewriteEngine On
+
+# Jeden kanoniczny adres: https://kolsystem.pl/
+# Dotychczas WordPress przekierowywał wariant www. Po jego usunięciu
+# przekierowanie musi pozostać na poziomie serwera.
+RewriteCond %{HTTP_HOST} ^www\.kolsystem\.pl$ [NC]
+RewriteRule ^(.*)$ https://kolsystem.pl/$1 [R=301,L]
+
+# Adresy działające na poprzedniej stronie WordPress.
+# Flaga NE zachowuje znak # w adresie docelowym, aby przeglądarka przewinęła
+# stronę do właściwej sekcji.
+RewriteRule ^o-nas/?$ https://kolsystem.pl/#o-firmie [R=301,L,NE]
+RewriteRule ^kontakt/?$ https://kolsystem.pl/#kontakt [R=301,L,NE]
