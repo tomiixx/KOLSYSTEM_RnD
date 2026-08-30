@@ -4,8 +4,14 @@
 RewriteEngine On
 
 # Jeden kanoniczny adres: https://kolsystem.pl/
-# Dotychczas WordPress przekierowywał wariant www. Po jego usunięciu
-# przekierowanie musi pozostać na poziomie serwera.
+# Krok 1: wymuszenie HTTPS. Druga reguła HTTP:X-Forwarded-Proto zabezpiecza
+# przed pętlą przekierowań, gdy SSL jest terminowany na proxy hostingu.
+RewriteCond %{HTTPS} !=on
+RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+RewriteRule ^(.*)$ https://kolsystem.pl/$1 [R=301,L]
+
+# Krok 2: wariant www. Dotychczas przekierowywał go WordPress, po jego
+# usunięciu przekierowanie musi pozostać na poziomie serwera.
 RewriteCond %{HTTP_HOST} ^www\.kolsystem\.pl$ [NC]
 RewriteRule ^(.*)$ https://kolsystem.pl/$1 [R=301,L]
 
@@ -13,4 +19,22 @@ RewriteRule ^(.*)$ https://kolsystem.pl/$1 [R=301,L]
 # Flaga NE zachowuje znak # w adresie docelowym, aby przeglądarka przewinęła
 # stronę do właściwej sekcji.
 RewriteRule ^o-nas/?$ https://kolsystem.pl/#o-firmie [R=301,L,NE]
+# Slug stroną główną starego WordPressa. Nie było go w mapie strony,
+# ale adres odpowiadał kodem 200, więc może być zaindeksowany.
+RewriteRule ^sterowanie-ruchem-kolejowym/?$ https://kolsystem.pl/ [R=301,L]
 RewriteRule ^kontakt/?$ https://kolsystem.pl/#kontakt [R=301,L,NE]
+
+# Kompresja i cache. Bloki IfModule sprawiają, że brak modułu na serwerze
+# nie powoduje błędu 500.
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>

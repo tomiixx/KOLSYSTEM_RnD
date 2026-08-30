@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="96mm" height="56mm" viewBox="0 0 96 56" role="img" aria-label="KOLSYSTEM - rewers wizytówki firmowej">
+  <title>KOLSYSTEM - rewers wizytówki 90 x 50 mm ze spadem 3 mm</title>
+  <defs>
+    <style>
+      @font-face { font-family: "Chakra-Bold"; src: url("../../../fonts/desktop/ChakraPetch-Bold.ttf"); }
+      @font-face { font-family: "Titillium-Regular"; src: url("../../../fonts/desktop/TitilliumWeb-Regular.ttf"); }
+      @font-face { font-family: "Titillium-SemiBold"; src: url("../../../fonts/desktop/TitilliumWeb-SemiBold.ttf"); }
+      @font-face { font-family: "JetBrains-Regular"; src: url("../../../fonts/desktop/JetBrainsMono-Regular.ttf"); }
+    </style>
+  </defs>
+  <rect width="96" height="56" fill="#f5f7fa"/>
+  <rect width="6" height="56" fill="#FFD200"/>
+
+  <text x="11" y="13" font-family="Chakra-Bold, Arial, sans-serif" font-size="4.6" fill="#14181d">KOLSYSTEM Sp. z o.o.</text>
+  <text x="11" y="18" font-family="Titillium-SemiBold, Arial, sans-serif" font-size="2.8" fill="#5b6672">Inżynieria systemów krytycznych</text>
+  <rect x="11" y="21.5" width="43" height=".6" fill="#FFD200"/>
+
+  <g font-family="JetBrains-Regular, Consolas, monospace" font-size="2.65" fill="#14181d">
+    <rect x="11" y="27.1" width="1.5" height="1.5" fill="#FFD200"/><text x="15" y="28.6">biuro@kolsystem.pl</text>
+    <rect x="11" y="33.1" width="1.5" height="1.5" fill="#FFD200"/><text x="15" y="34.6">+48 600 580 325</text>
+    <rect x="11" y="39.1" width="1.5" height="1.5" fill="#FFD200"/><text x="15" y="40.6">kolsystem.pl</text>
+  </g>
+  <text x="11" y="47.2" font-family="Titillium-Regular, Arial, sans-serif" font-size="2.35" fill="#5b6672">ul. Radockiego 76/8 · 40-645 Katowice</text>
+
+  <g transform="translate(70 17) scale(.04)">
+    <rect width="512" height="512" rx="116" fill="#FFD200"/>
+    <g stroke="#14181d" stroke-width="24" stroke-linecap="round">
+      <line x1="146" y1="150" x2="352" y2="256"/><line x1="146" y1="256" x2="352" y2="256"/><line x1="146" y1="362" x2="352" y2="256"/>
+    </g>
+    <g fill="#14181d"><circle cx="146" cy="150" r="34"/><circle cx="146" cy="256" r="34"/><circle cx="146" cy="362" r="34"/></g>
+    <circle cx="352" cy="256" r="66" fill="#14181d"/>
+    <path d="M322 260 345 284 388 230" fill="none" stroke="#FFD200" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+</svg>

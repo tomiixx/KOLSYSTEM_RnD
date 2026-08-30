@@ -5,7 +5,7 @@ Nie zmienia domeny, DNS, kont pocztowych ani planu hostingowego.
 
 ## Co zostanie opublikowane
 
-Do głównego katalogu domeny `kolsystem.pl` trafią:
+Do katalogu strony `/kolsystem.pl/kolsystem_pl/` trafią:
 
 ```text
 .htaccess
@@ -75,18 +75,27 @@ dla konta, którego nie rozpoznajesz.
    | Hasło | Hasło utworzone w kroku 1 |
 
 3. Kliknij **Połącz**.
-4. W prawym panelu znajdź katalog `kolsystem.pl` i wejdź do niego.
+4. W prawym panelu wejdź do `kolsystem.pl`, a następnie do `kolsystem_pl`.
+   Pełna ścieżka to `/kolsystem.pl/kolsystem_pl/`.
 
-Na hostingu domena.pl pliki strony wgrywa się do głównego katalogu domeny;
-nie twórz ani nie używaj katalogu `public_html`.
+Uwaga: katalog strony NIE jest katalogiem `/kolsystem.pl/`. Leży poziom niżej,
+w `/kolsystem.pl/kolsystem_pl/`. Potwierdzono to, porównując rozmiar pliku
+`license.txt` na serwerze (19 935 B) z plikiem serwowanym pod
+`https://kolsystem.pl/license.txt`.
+
+W `/kolsystem.pl/` leżą pozostałości nieużywanej strony statycznej z 2018 roku
+(`css`, `images`, `js`, `index.html`) oraz katalog `.backupfiles201811090…`.
+Nie wgrywaj tam nowej strony i nie kasuj tych plików — nie mają wpływu na to,
+co widzi odwiedzający. Nie używaj też katalogu `public_html`; na tym hostingu
+go nie ma.
 
 ## 4. Kopia bezpieczeństwa starego WordPressa
 
 ### Pliki strony
 
 1. W lewym panelu FileZilli przejdź do utworzonego folderu kopii.
-2. W prawym panelu, w katalogu `kolsystem.pl`, zaznacz wszystkie pliki i
-   katalogi obecnej strony.
+2. W prawym panelu, w katalogu `/kolsystem.pl/kolsystem_pl/`, zaznacz
+   wszystkie pliki i katalogi obecnej strony.
 3. Kliknij prawym przyciskiem i wybierz **Pobierz**.
 4. Poczekaj, aż w dolnym panelu FileZilli nie będzie oczekujących ani
    nieudanych transferów.
@@ -106,11 +115,30 @@ nie twórz ani nie używaj katalogu `public_html`.
 Nie usuwaj bazy danych ani kont pocztowych. Baza może pozostać na hostingu po
 przełączeniu strony; będzie potrzebna do ewentualnego powrotu do WordPressa.
 
+### Stan starej instalacji
+
+Daty modyfikacji plików rdzenia WordPressa nie są spójne. Większość pochodzi
+z 14.02.2020, ale `wp-signup.php` ma 7.08.2026, a `readme.html` 12.08.2026.
+Pliki rdzenia jednej wersji powinny mieć wspólną datę. Do tego większość
+plików PHP ma uprawnienia `0666`, czyli zapis dla wszystkich.
+
+To nie jest dowód włamania, ale wystarczający powód, by traktować kopię jako
+niepewną:
+
+1. Trzymaj kopię lokalnie i nie udostępniaj jej w sieci.
+2. Przeskanuj folder kopii programem antywirusowym.
+3. Nie otwieraj plików PHP z kopii na serwerze ani w środowisku z PHP.
+4. Po zakończonej migracji zmień hasło do panelu domena.pl.
+
+Migracji to nie blokuje — usuwasz całą tę instalację, więc problem znika razem
+z nią. Ma to natomiast znaczenie dla planu awaryjnego na końcu instrukcji.
+
 ## 5. Przełączenie na nową stronę
 
 Zacznij ten krok dopiero, gdy lokalna kopia plików i eksport bazy są kompletne.
 
-1. W katalogu `kolsystem.pl` usuń pliki i katalogi WordPressa, w tym:
+1. W katalogu `/kolsystem.pl/kolsystem_pl/` usuń pliki i katalogi
+   WordPressa, w tym:
 
    ```text
    wp-admin/
@@ -131,7 +159,7 @@ Zacznij ten krok dopiero, gdy lokalna kopia plików i eksport bazy są kompletne
    C:\Users\szcze\Desktop\KOLSYSTEM_www
    ```
 
-5. Wgraj do głównego katalogu `kolsystem.pl` dokładnie te elementy:
+5. Wgraj do `/kolsystem.pl/kolsystem_pl/` dokładnie te elementy:
 
    ```text
    .htaccess
@@ -150,8 +178,10 @@ Zacznij ten krok dopiero, gdy lokalna kopia plików i eksport bazy są kompletne
 1. W panelu hostingowym kliknij **WWW → Certyfikaty SSL**.
 2. Upewnij się, że certyfikat obejmuje `kolsystem.pl`. Obecna strona działa pod
    HTTPS, więc nie należy usuwać ani wyłączać istniejącego certyfikatu.
-3. Plik `.htaccess` obsługuje przekierowanie `www.kolsystem.pl` na
-   `kolsystem.pl` oraz stare adresy WordPressa.
+3. Plik `.htaccess` obsługuje wymuszenie HTTPS, przekierowanie
+   `www.kolsystem.pl` na `kolsystem.pl` oraz stare adresy WordPressa. Zawiera
+   też kompresję i nagłówki cache — każdy taki blok jest zabezpieczony
+   warunkiem `IfModule`, więc brak modułu na serwerze nie wywoła błędu.
 4. Nie zmieniaj rekordów DNS ani delegacji domeny — domena już wskazuje na ten
    hosting.
 
@@ -199,7 +229,11 @@ Dodatkowo sprawdź:
 
 ## Powrót do starej strony w razie problemu
 
-1. Usuń nowo wgrane pliki statyczne z katalogu `kolsystem.pl`.
+Traktuj to jako ostateczność, nie pierwszy odruch. Przywracasz instalację
+o niepewnym stanie (patrz „Stan starej instalacji"), więc najpierw sprawdź,
+czy problemu nie da się rozwiązać na nowej stronie.
+
+1. Usuń nowo wgrane pliki statyczne z katalogu `/kolsystem.pl/kolsystem_pl/`.
 2. Wgraj z lokalnej kopii wszystkie pliki WordPressa, w tym poprzedni
    `.htaccess`.
 3. Bazy danych nie importuj, o ile nie została zmieniona lub usunięta.

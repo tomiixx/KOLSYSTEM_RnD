@@ -424,7 +424,7 @@
         '\n' + message;
 
       window.location.href =
-        'mailto:kontakt@kolsystem.pl' +
+        'mailto:biuro@kolsystem.pl' +
         '?subject=' + encodeURIComponent(subject) +
         '&body=' + encodeURIComponent(body);
 
