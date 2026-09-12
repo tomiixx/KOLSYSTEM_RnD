@@ -1,0 +1,328 @@
+﻿================================================================
+1. META - TYTUL I OPIS (PL)
+================================================================
+
+title:
+KOLSYSTEM – Bezpieczeństwo funkcjonalne IEC 61508 | Inżynieria przemysłowa
+
+description:
+KOLSYSTEM Sp. z o.o. – inżynieria systemów krytycznych dla przemysłu
+i różnych branż. Bezpieczeństwo funkcjonalne IEC 61508, Model-Based
+Design, MATLAB, Simulink, weryfikacja i walidacja.
+
+og:title / twitter:title:
+KOLSYSTEM – Bezpieczeństwo funkcjonalne IEC 61508
+
+og:description / twitter:description:
+Bezpieczeństwo funkcjonalne IEC 61508, Model-Based Design, MATLAB
+i Simulink. Inżynieria systemów krytycznych dla przemysłu i różnych branż.
+
+og:image:alt:
+KOLSYSTEM — Inżynieria systemów krytycznych. IEC 61508, Model-Based
+Design, diagram cyklu życia systemu.
+
+og:site_name:  KOLSYSTEM
+author:        KOLSYSTEM Sp. z o.o.
+
+
+================================================================
+2. JSON-LD "knowsAbout" (13 fraz - najsilniejszy sygnal tematyczny)
+================================================================
+
+inżynieria systemów krytycznych
+bezpieczeństwo funkcjonalne
+Model-Based Design
+MATLAB
+Simulink
+IEC Certification Kit
+IEC 61508
+systemy E/E/PE
+automatyka przemysłowa
+Safety Integrity Level (SIL)
+weryfikacja i walidacja
+Sterowniki PLC z oprogramowaniem SIL4
+systemy embedded
+
+
+================================================================
+3. JSON-LD "hasOfferCatalog" - katalog uslug (10 pozycji)
+================================================================
+
+Inżynieria systemowa
+Analiza i zarządzanie wymaganiami
+Model-Based Design
+Modelowanie i symulacja
+Rozwój systemów embedded
+Weryfikacja i walidacja
+Automatyzacja testów
+Bezpieczeństwo funkcjonalne
+Wsparcie dokumentacji projektowej
+Konsulting dla zespołów R&D
+
+
+================================================================
+4. NAGLOWKI H1-H4 (PL)
+================================================================
+
+--- H1 ---
+Inżynieria systemów krytycznych
+
+--- H2 (sekcje) ---
+O firmie
+Usługi
+Przemysł i systemy krytyczne
+Technologie i narzędzia
+IEC 61508 i bezpieczeństwo funkcjonalne
+Proces współpracy
+Przykładowe obszary projektowe
+Masz przemysłowy projekt, w którym liczy się bezpieczeństwo?
+Kontakt
+
+--- H3: uslugi (12) ---
+Inżynieria systemowa
+Analiza i zarządzanie wymaganiami
+Model-Based Design
+Modelowanie i symulacja
+Rozwój systemów embedded
+Weryfikacja i walidacja
+Automatyzacja testów
+Bezpieczeństwo funkcjonalne
+Wsparcie dokumentacji projektowej
+Generowanie i weryfikacja kodu
+Analiza pokrycia strukturalnego
+Konsulting dla zespołów R&D
+
+--- H3: technologie ---
+MATLAB
+Simulink
+IEC Certification Kit
+Specjalistyczne toolboxy
+Co to daje w projekcie
+
+--- H3: standardy ---
+Podstawa bezpieczeństwa funkcjonalnego
+Cykl życia bezpieczeństwa
+Systemy E/E/PE
+Oprogramowanie związane z bezpieczeństwem
+Poziomy nienaruszalności bezpieczeństwa
+Doświadczenie sektorowe
+
+--- H3: proces wspolpracy ---
+Analiza potrzeb
+Definicja zakresu
+Realizacja inżynieryjna
+Weryfikacja i testy
+Przekazanie i wsparcie
+
+--- H3: obszary projektowe ---
+Algorytmy sterowania i logika bezpieczeństwa
+Środowiska testowe MIL / SIL / HIL
+Generowanie kodu z modeli
+Identyfikowalność wymagań
+Analizy na potrzeby dowodów bezpieczeństwa
+Wdrożenie podejścia Model-Based Design
+
+--- H3: atuty ---
+Doświadczeni specjaliści
+Elastyczność działania
+Bezpośredni kontakt
+
+--- H3/H4: pozostale ---
+W skrócie
+Dane kontaktowe
+Dane rejestrowe
+Lokalizacja
+Dane firmy
+Na skróty
+
+
+================================================================
+5. FRAZY Z TRESCI (poza naglowkami)
+================================================================
+
+--- Normy, zgodnosc, bezpieczenstwo ---
+IEC 61508
+IEC 61508-1
+IEC 61508-2
+IEC 61508-3
+IEC 61508-5
+CENELEC
+normy sektorowe
+ocena zgodności
+asesment
+jednostki oceniające
+dowody zgodności
+audyt
+safety case
+dowody bezpieczeństwa
+analiza zagrożeń i ryzyka
+funkcje bezpieczeństwa
+cykl życia bezpieczeństwa
+cykl życia systemu
+poziom SIL
+poziomy nienaruszalności bezpieczeństwa
+zarządzanie ryzykiem
+niezależna ocena
+przeglądy i audyty
+
+--- Technologie i narzedzia ---
+MATLAB
+Simulink
+IEC Certification Kit
+ekosystem MathWorks
+specjalistyczne toolboxy
+Model-Based Design
+MBD
+modele wykonywalne
+modelowanie i symulacja
+generowanie kodu z modeli
+automatyczna generacja kodu
+testy równoważności modelu i kodu
+SIL/PIL
+analiza pokrycia strukturalnego
+pokrycie strukturalne modelu i kodu
+MC/DC
+MIL / SIL / HIL
+środowiska testowe
+automatyzacja testów
+skrypty testowe
+regresja
+automatyczne raportowanie
+powtarzalność analiz
+audytowalny wynik
+
+--- Domena i systemy ---
+systemy krytyczne
+systemy safety-critical
+inżynieria systemów krytycznych
+systemy przemysłowe
+automatyka i systemy sterowania
+automatyka przemysłowa
+maszyny i instalacje przemysłowe
+systemy zabezpieczeń i funkcje ochronne
+oprogramowanie embedded
+oprogramowanie wbudowane
+systemy embedded
+sterowniki PLC z oprogramowaniem SIL4
+algorytmy sterowania
+algorytmy sterujące
+logika bezpieczeństwa
+platformy czasu rzeczywistego
+determinizm
+niezawodność
+testowanie i analiza systemów
+systemy E/E/PE
+systemy elektryczne, elektroniczne i programowalne
+oprogramowanie związane z bezpieczeństwem
+branża kolejowa
+środowisko kolejowe
+systemy kolejowe
+
+--- Proces inzynieryjny ---
+inżynieria systemowa
+architektura systemu
+dekompozycja funkcji
+analiza i zarządzanie wymaganiami
+specyfikacja wymagań
+identyfikowalność wymagań
+weryfikacja i walidacja
+dokumentacja techniczna
+dokumentacja procesowa
+wsparcie dokumentacji projektowej
+konsulting dla zespołów R&D
+transfer wiedzy
+przeglądy procesów
+kryteria odbioru
+
+--- Eyebrow / hero ---
+IEC 61508 · Systemy krytyczne · MBD
+
+
+================================================================
+6. TEKST W DIAGRAMIE SVG (cykl zycia systemu)
+================================================================
+
+KONCEPCJA
+DEFINICJA SYSTEMU
+ANALIZA RYZYKA
+WYMAGANIA SYSTEMOWE
+ARCHITEKTURA I ALOKACJA WYMAGAŃ
+PROJEKTOWANIE I IMPLEMENTACJA
+PRODUKCJA
+INTEGRACJA
+WALIDACJA SYSTEMU
+ODBIÓR SYSTEMU
+EKSPLOATACJA I UTRZYMANIE
+WYCOFANIE
+
+
+================================================================
+7. LOCAL SEO / DANE FIRMOWE
+================================================================
+
+KOLSYSTEM
+KOLSYSTEM Sp. z o.o.
+KOLSYSTEM Spółka z ograniczoną odpowiedzialnością
+Katowice
+ul. Uniwersytecka 13
+40-007 Katowice
+województwo śląskie
+Polska (areaServed: PL)
+biuro@kolsystem.pl
++48 600 580 325
+NIP 954-278-16-88 / 9542781688 / PL9542781688
+REGON 368149910
+KRS 0000693250
+kolsystem.pl
+
+
+================================================================
+8. WERSJA ANGIELSKA (/en/)
+================================================================
+
+title:
+KOLSYSTEM – IEC 61508 Functional Safety | Industrial Engineering
+
+description:
+KOLSYSTEM Sp. z o.o. - safety-critical systems engineering for industry
+and a range of sectors. IEC 61508 functional safety, Model-Based Design,
+MATLAB, Simulink, verification and validation.
+
+og:image:alt:
+KOLSYSTEM – Safety-critical systems engineering. IEC 61508,
+Model-Based Design, system lifecycle diagram.
+
+--- Slowa kluczowe EN ---
+safety-critical systems engineering
+critical systems engineering
+functional safety
+IEC 61508
+industrial engineering
+Model-Based Design
+MATLAB
+Simulink
+IEC Certification Kit
+specialist toolboxes
+systems engineering
+requirements analysis and management
+requirements traceability
+modelling and simulation
+embedded systems development
+verification and validation
+test automation
+project documentation support
+code generation and verification
+code generation from models
+structural coverage analysis
+consulting for R&D teams
+industry and safety-critical systems
+technologies and tools
+safety lifecycle
+E/E/PE systems
+safety-related software
+safety integrity levels
+sector experience
+control algorithms and safety logic
+MIL / SIL / HIL test environments
+analyses for safety evidence
+adopting Model-Based Design
