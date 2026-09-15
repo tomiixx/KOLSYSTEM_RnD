@@ -249,6 +249,18 @@ address { font-style: normal; }
 }
 .skip-link:focus { top: 0; }
 
+/* Tekst tylko dla czytników ekranu */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* ---------- 2. Typografia ---------- */
 
 h1, h2, h3 {
@@ -424,7 +436,7 @@ p { max-width: 65ch; }
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 /* Logo */
@@ -441,7 +453,9 @@ p { max-width: 65ch; }
   flex: 0 0 auto;
 }
 
-/* W nagłówku logotyp większy niż w stopce */
+/* W nagłówku logotyp większy niż w stopce; nie może się ściskać,
+   gdy brakuje miejsca na nawigację. */
+.site-header .logo { flex-shrink: 0; }
 .site-header .logo-image { height: 2.25rem; }
 
 /* Nawigacja desktop */
@@ -459,6 +473,7 @@ p { max-width: 65ch; }
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  white-space: nowrap;
   color: var(--muted-d);
   text-decoration: none;
   border-radius: 5px;
@@ -481,6 +496,54 @@ p { max-width: 65ch; }
 .site-nav a.nav-cta:focus-visible {
   background: var(--yellow);
   color: var(--on-yellow);
+}
+
+/* LinkedIn: na desktopie sama ikona za separatorem,
+   w menu mobilnym pełny wiersz z podpisem. */
+.nav-social {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5rem;
+}
+
+.nav-social::before {
+  content: "";
+  width: 1px;
+  height: 1.3rem;
+  margin-right: 0.45rem;
+  background: var(--border-d);
+}
+
+.site-nav .nav-social a {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.45rem;
+}
+
+.nav-social svg {
+  flex: 0 0 auto;
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: currentColor;
+}
+
+/* Pełna nawigacja na węższych laptopach - ciaśniejsze odstępy między pozycjami */
+@media (min-width: 68.0625rem) and (max-width: 75rem) {
+  .site-nav ul { gap: 0.125rem; }
+  .site-nav a { padding-inline: 0.5rem; }
+}
+
+@media (min-width: 68.0625rem) {
+  .nav-social-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
 }
 
 /* Przełącznik języka */
@@ -1320,22 +1383,54 @@ p { max-width: 65ch; }
   margin-bottom: 0.25rem;
 }
 
+/* Podkreślenie jako text-decoration, żeby przy złamaniu adresu
+   biegło pod każdą linią tekstu, a nie pod całym blokiem. */
 .contact-list a {
   color: var(--white);
   font-size: 1.05rem;
   font-weight: 500;
-  text-decoration: none;
-  border-bottom: 1px solid var(--border-d);
-  transition: color 0.15s ease, border-color 0.15s ease;
+  text-decoration: underline 1px var(--border-d);
+  text-underline-offset: 0.3em;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
 }
 
 .contact-list a:hover,
 .contact-list a:focus-visible {
   color: var(--yellow);
-  border-bottom-color: var(--yellow);
+  text-decoration-color: var(--yellow);
 }
 
 .contact-list address { color: var(--white); }
+
+/* Ikony przy danych kontaktowych - ciemny wariant ikon z kart usług */
+.contact-list li {
+  display: grid;
+  grid-template-columns: 2.6rem minmax(0, 1fr);
+  column-gap: 1rem;
+  align-items: start;
+}
+
+.contact-list li > :not(.contact-icon) { grid-column: 2; }
+.contact-list li > a { justify-self: start; }
+
+.contact-icon {
+  grid-row: 1 / span 2;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0.55rem;
+  background: var(--anthracite);
+  border: 1px solid var(--border-d);
+  border-radius: 8px;
+  fill: none;
+  stroke: var(--yellow);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  transition: border-color 0.15s ease;
+}
+
+.contact-list li:has(a:hover) .contact-icon,
+.contact-list li:has(a:focus-visible) .contact-icon { border-color: var(--yellow); }
 
 .reg-list div {
   display: grid;
@@ -1549,6 +1644,35 @@ p { max-width: 65ch; }
   margin-top: 1.1rem;
   font-size: 0.92rem;
   max-width: 20rem;
+}
+
+.footer-social {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.3rem;
+}
+
+.footer-social a {
+  display: grid;
+  place-items: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid var(--border-d);
+  border-radius: 6px;
+  color: var(--muted-d);
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.footer-social a:hover,
+.footer-social a:focus-visible {
+  color: var(--white);
+  border-color: var(--yellow);
+}
+
+.footer-social svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
 }
 
 .footer-col h3 {
@@ -1772,7 +1896,9 @@ p { max-width: 65ch; }
   .standards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 
-@media (max-width: 56rem) {
+/* Menu rozwijane włącza się, zanim pełna nawigacja przestanie mieścić się
+   obok logo (8 pozycji + LinkedIn + przełącznik języka). */
+@media (max-width: 68rem) {
   /* Nawigacja mobilna */
   .nav-toggle { display: inline-flex; }
 
@@ -1796,8 +1922,12 @@ p { max-width: 65ch; }
   }
 
   .site-nav.is-open {
-    max-height: 30rem;
+    max-height: 40rem;
+    max-height: min(40rem, calc(100dvh - var(--header-h)));
+    overflow-y: auto;
     visibility: visible;
+    /* widoczność od razu - inaczej skrypt nie przeniesie fokusu do menu */
+    transition: max-height 0.3s ease, visibility 0s;
   }
 
   .site-nav ul {
@@ -1820,6 +1950,16 @@ p { max-width: 65ch; }
     border-radius: 6px;
     text-align: center;
   }
+
+  .nav-social { margin: 0.35rem 0 0; }
+  .nav-social::before { display: none; }
+
+  .site-nav .nav-social a {
+    flex: 1;
+    justify-content: center;
+    padding: 0.85rem 0.5rem;
+    border-bottom: 0;
+  }
 }
 
 @media (max-width: 40rem) {
@@ -1831,8 +1971,30 @@ p { max-width: 65ch; }
   .cards-grid,
   .tech-grid,
   .value-grid { grid-template-columns: 1fr; }
-  /* Na bardzo wąskich ekranach zmniejszamy logo, aby zmieściło się obok menu. */
-  .site-header .logo-image { height: 1.95rem; }
+  /* Telefon: logo wypełnia miejsce obok przełącznika i przycisku menu
+     (skaluje się proporcjonalnie, nigdy nie jest ściskane). */
+  .header-inner { gap: 0.6rem; }
+  .site-header .logo { flex: 0 1 11rem; min-width: 0; }
+  .site-header .logo-image { width: 100%; height: auto; }
+  .lang-switch, .nav-toggle { flex-shrink: 0; }
+  .lang-switch a { padding: 0.35rem 0.45rem; }
+
+  /* Sam symbol menu - podpis zostaje dla czytników ekranu */
+  .nav-toggle {
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    padding: 0;
+  }
+  .nav-toggle-label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+  }
   .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
   .hero-actions .btn { width: 100%; text-align: center; }
   .cta-band-btn { width: 100%; text-align: center; }

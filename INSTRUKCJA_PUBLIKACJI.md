@@ -232,6 +232,29 @@ Dodatkowo sprawdź:
 4. Rozważ podpięcie formularza do serwerowego wysyłania e-maili przed
    rozpoczęciem kampanii lub działań reklamowych.
 
+## Aktualizacja opublikowanej strony
+
+Przy kolejnych zmianach nie powtarzaj kroków 1-6. Wystarczy podmienić
+zmienione pliki.
+
+1. Jeśli zmieniał się polski tekst, przebuduj wersję angielską:
+   `python tools/build_i18n.py` (musi zakończyć się komunikatem
+   „Wszystkie teksty przetłumaczone”).
+2. **Jeśli zmieniał się `assets/css/style.css` lub `assets/js/script.js`**,
+   zmień numer wersji w odnośniku (`style.css?v=RRRR-MM-DD`,
+   `script.js?v=RRRR-MM-DD`) w `index.html` i `polityka-prywatnosci.html`,
+   a potem przebuduj `en/`. `.htaccess` każe przeglądarkom trzymać CSS i JS
+   przez rok - bez nowego numeru powracający odwiedzający dostaną nowy HTML
+   ze starym stylem i strona się rozsypie.
+3. Połącz się FileZillą (krok 3) i wgraj do `/kolsystem.pl/kolsystem_pl/`
+   tylko zmienione pliki, zachowując strukturę katalogów (`en/` do `en/`,
+   `assets/css/` do `assets/css/`). Na pytanie o istniejący plik wybierz
+   **Nadpisz**.
+4. Sprawdź stronę w prywatnym oknie przeglądarki, na komputerze i telefonie.
+
+Listę zmienionych plików pokaże `git status`. Pomiń te, które nie trafiają
+na serwer (`i18n/`, `tools/`, `brand/`, pliki `.md` i `.txt` poza `robots.txt`).
+
 ## Powrót do starej strony w razie problemu
 
 Traktuj to jako ostateczność, nie pierwszy odruch. Przywracasz instalację
